@@ -8,9 +8,9 @@
  * interface file instead.
  * ----------------------------------------------------------------------------- */
 
-// source: src/linear_solver/python/linear_solver.swig
+// source: wrapper/linear_solver.swig
 
-#define SWIGMODULE ilp
+#define SWIGMODULE ortools
 
 #ifdef __cplusplus
 /* SwigValueWrapper is described in swig.swg */
@@ -231,6 +231,15 @@ static void _swig_gopanic(const char *p) {
   if (!(expr)) { _swig_gopanic(msg); } else
 
 
+static _gostring_ Swig_AllocateString(const char *p, size_t l) {
+  _gostring_ ret;
+  ret.p = (char*)malloc(l);
+  memcpy(ret.p, p, l);
+  ret.n = l;
+  return ret;
+}
+
+
 static void Swig_free(void* p) {
   free(p);
 }
@@ -238,6 +247,9 @@ static void Swig_free(void* p) {
 static void* Swig_malloc(int c) {
   return malloc(c);
 }
+
+
+#include <string>
 
 
 #include "linear_solver/linear_solver.h"
@@ -259,6 +271,7 @@ SWIGINTERN std::string operations_research_MPSolver_LoadModelFromProto(operation
     self->LoadModelFromProto(input_model, &error_message);
     return error_message;
   }
+SWIGINTERN double operations_research_MPSolver_PositiveInfinity(){ return operations_research::MPSolver::infinity(); }
 SWIGINTERN void operations_research_MPSolver_SetTimeLimit(operations_research::MPSolver *self,int64 x){ self->set_time_limit(x); }
 SWIGINTERN int64 operations_research_MPSolver_WallTime(operations_research::MPSolver const *self){ return self->wall_time(); }
 SWIGINTERN std::string operations_research_MPVariable___str__(operations_research::MPVariable *self){
@@ -278,7 +291,7 @@ SWIGINTERN double operations_research_MPConstraint_DualValue(operations_research
 extern "C" {
 #endif
 
-void _wrap_Swig_free_ilp_70c2f4f52bc62623(void *_swig_go_0) {
+void _wrap_Swig_free_ortools_73e3846564b60880(void *_swig_go_0) {
   void *arg1 = (void *) 0 ;
   
   arg1 = *(void **)&_swig_go_0; 
@@ -288,7 +301,7 @@ void _wrap_Swig_free_ilp_70c2f4f52bc62623(void *_swig_go_0) {
 }
 
 
-void *_wrap_Swig_malloc_ilp_70c2f4f52bc62623(intgo _swig_go_0) {
+void *_wrap_Swig_malloc_ortools_73e3846564b60880(intgo _swig_go_0) {
   int arg1 ;
   void *result = 0 ;
   void *_swig_go_result;
@@ -301,7 +314,7 @@ void *_wrap_Swig_malloc_ilp_70c2f4f52bc62623(intgo _swig_go_0) {
 }
 
 
-intgo _wrap_CLP_LINEAR_PROGRAMMING_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_CLP_LINEAR_PROGRAMMING_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::OptimizationProblemType result;
   intgo _swig_go_result;
   
@@ -313,7 +326,7 @@ intgo _wrap_CLP_LINEAR_PROGRAMMING_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_GLOP_LINEAR_PROGRAMMING_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_GLOP_LINEAR_PROGRAMMING_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::OptimizationProblemType result;
   intgo _swig_go_result;
   
@@ -325,7 +338,7 @@ intgo _wrap_GLOP_LINEAR_PROGRAMMING_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_CBC_MIXED_INTEGER_PROGRAMMING_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_CBC_MIXED_INTEGER_PROGRAMMING_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::OptimizationProblemType result;
   intgo _swig_go_result;
   
@@ -337,7 +350,7 @@ intgo _wrap_CBC_MIXED_INTEGER_PROGRAMMING_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_BOP_INTEGER_PROGRAMMING_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_BOP_INTEGER_PROGRAMMING_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::OptimizationProblemType result;
   intgo _swig_go_result;
   
@@ -349,13 +362,16 @@ intgo _wrap_BOP_INTEGER_PROGRAMMING_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-operations_research::MPSolver *_wrap_new_Solver_ilp_70c2f4f52bc62623(std::string *_swig_go_0, intgo _swig_go_1) {
+operations_research::MPSolver *_wrap_new_Solver_ortools_73e3846564b60880(_gostring_ _swig_go_0, intgo _swig_go_1) {
   std::string *arg1 = 0 ;
   operations_research::MPSolver::OptimizationProblemType arg2 ;
   operations_research::MPSolver *result = 0 ;
   operations_research::MPSolver *_swig_go_result;
   
-  arg1 = *(std::string **)&_swig_go_0; 
+  
+  std::string arg1_str(_swig_go_0.p, _swig_go_0.n);
+  arg1 = &arg1_str;
+  
   arg2 = (operations_research::MPSolver::OptimizationProblemType)_swig_go_1; 
   
   result = (operations_research::MPSolver *)new operations_research::MPSolver((std::string const &)*arg1,arg2);
@@ -364,7 +380,7 @@ operations_research::MPSolver *_wrap_new_Solver_ilp_70c2f4f52bc62623(std::string
 }
 
 
-void _wrap_delete_Solver_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+void _wrap_delete_Solver_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
@@ -374,7 +390,7 @@ void _wrap_delete_Solver_ilp_70c2f4f52bc62623(operations_research::MPSolver *_sw
 }
 
 
-bool _wrap_Solver_SupportsProblemType_ilp_70c2f4f52bc62623(intgo _swig_go_0) {
+bool _wrap_Solver_SupportsProblemType_ortools_73e3846564b60880(intgo _swig_go_0) {
   operations_research::MPSolver::OptimizationProblemType arg1 ;
   bool result;
   bool _swig_go_result;
@@ -387,7 +403,7 @@ bool _wrap_Solver_SupportsProblemType_ilp_70c2f4f52bc62623(intgo _swig_go_0) {
 }
 
 
-void _wrap_Solver_Clear_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+void _wrap_Solver_Clear_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
@@ -397,7 +413,7 @@ void _wrap_Solver_Clear_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swi
 }
 
 
-intgo _wrap_Solver_NumVariables_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+intgo _wrap_Solver_NumVariables_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   int result;
   intgo _swig_go_result;
@@ -410,14 +426,17 @@ intgo _wrap_Solver_NumVariables_ilp_70c2f4f52bc62623(operations_research::MPSolv
 }
 
 
-operations_research::MPVariable *_wrap_Solver_LookupVariable_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, std::string *_swig_go_1) {
+operations_research::MPVariable *_wrap_Solver_LookupVariable_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, _gostring_ _swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   std::string *arg2 = 0 ;
   operations_research::MPVariable *result = 0 ;
   operations_research::MPVariable *_swig_go_result;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
-  arg2 = *(std::string **)&_swig_go_1; 
+  
+  std::string arg2_str(_swig_go_1.p, _swig_go_1.n);
+  arg2 = &arg2_str;
+  
   
   result = (operations_research::MPVariable *)((operations_research::MPSolver const *)arg1)->LookupVariableOrNull((std::string const &)*arg2);
   *(operations_research::MPVariable **)&_swig_go_result = (operations_research::MPVariable *)result; 
@@ -425,7 +444,7 @@ operations_research::MPVariable *_wrap_Solver_LookupVariable_ilp_70c2f4f52bc6262
 }
 
 
-operations_research::MPVariable *_wrap_Solver_NumVar_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, double _swig_go_1, double _swig_go_2, std::string *_swig_go_3) {
+operations_research::MPVariable *_wrap_Solver_NumVar_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, double _swig_go_1, double _swig_go_2, _gostring_ _swig_go_3) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   double arg2 ;
   double arg3 ;
@@ -436,7 +455,10 @@ operations_research::MPVariable *_wrap_Solver_NumVar_ilp_70c2f4f52bc62623(operat
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
   arg2 = (double)_swig_go_1; 
   arg3 = (double)_swig_go_2; 
-  arg4 = *(std::string **)&_swig_go_3; 
+  
+  std::string arg4_str(_swig_go_3.p, _swig_go_3.n);
+  arg4 = &arg4_str;
+  
   
   result = (operations_research::MPVariable *)(arg1)->MakeNumVar(arg2,arg3,(std::string const &)*arg4);
   *(operations_research::MPVariable **)&_swig_go_result = (operations_research::MPVariable *)result; 
@@ -444,7 +466,7 @@ operations_research::MPVariable *_wrap_Solver_NumVar_ilp_70c2f4f52bc62623(operat
 }
 
 
-operations_research::MPVariable *_wrap_Solver_IntVar_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, double _swig_go_1, double _swig_go_2, std::string *_swig_go_3) {
+operations_research::MPVariable *_wrap_Solver_IntVar_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, double _swig_go_1, double _swig_go_2, _gostring_ _swig_go_3) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   double arg2 ;
   double arg3 ;
@@ -455,7 +477,10 @@ operations_research::MPVariable *_wrap_Solver_IntVar_ilp_70c2f4f52bc62623(operat
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
   arg2 = (double)_swig_go_1; 
   arg3 = (double)_swig_go_2; 
-  arg4 = *(std::string **)&_swig_go_3; 
+  
+  std::string arg4_str(_swig_go_3.p, _swig_go_3.n);
+  arg4 = &arg4_str;
+  
   
   result = (operations_research::MPVariable *)(arg1)->MakeIntVar(arg2,arg3,(std::string const &)*arg4);
   *(operations_research::MPVariable **)&_swig_go_result = (operations_research::MPVariable *)result; 
@@ -463,14 +488,17 @@ operations_research::MPVariable *_wrap_Solver_IntVar_ilp_70c2f4f52bc62623(operat
 }
 
 
-operations_research::MPVariable *_wrap_Solver_BoolVar_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, std::string *_swig_go_1) {
+operations_research::MPVariable *_wrap_Solver_BoolVar_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, _gostring_ _swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   std::string *arg2 = 0 ;
   operations_research::MPVariable *result = 0 ;
   operations_research::MPVariable *_swig_go_result;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
-  arg2 = *(std::string **)&_swig_go_1; 
+  
+  std::string arg2_str(_swig_go_1.p, _swig_go_1.n);
+  arg2 = &arg2_str;
+  
   
   result = (operations_research::MPVariable *)(arg1)->MakeBoolVar((std::string const &)*arg2);
   *(operations_research::MPVariable **)&_swig_go_result = (operations_research::MPVariable *)result; 
@@ -478,7 +506,7 @@ operations_research::MPVariable *_wrap_Solver_BoolVar_ilp_70c2f4f52bc62623(opera
 }
 
 
-intgo _wrap_Solver_NumConstraints_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+intgo _wrap_Solver_NumConstraints_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   int result;
   intgo _swig_go_result;
@@ -491,14 +519,17 @@ intgo _wrap_Solver_NumConstraints_ilp_70c2f4f52bc62623(operations_research::MPSo
 }
 
 
-operations_research::MPConstraint *_wrap_Solver_LookupConstraint_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, std::string *_swig_go_1) {
+operations_research::MPConstraint *_wrap_Solver_LookupConstraint_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, _gostring_ _swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   std::string *arg2 = 0 ;
   operations_research::MPConstraint *result = 0 ;
   operations_research::MPConstraint *_swig_go_result;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
-  arg2 = *(std::string **)&_swig_go_1; 
+  
+  std::string arg2_str(_swig_go_1.p, _swig_go_1.n);
+  arg2 = &arg2_str;
+  
   
   result = (operations_research::MPConstraint *)((operations_research::MPSolver const *)arg1)->LookupConstraintOrNull((std::string const &)*arg2);
   *(operations_research::MPConstraint **)&_swig_go_result = (operations_research::MPConstraint *)result; 
@@ -506,7 +537,7 @@ operations_research::MPConstraint *_wrap_Solver_LookupConstraint_ilp_70c2f4f52bc
 }
 
 
-operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_0_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, double _swig_go_1, double _swig_go_2) {
+operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_0_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, double _swig_go_1, double _swig_go_2) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   double arg2 ;
   double arg3 ;
@@ -523,7 +554,7 @@ operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_0_ilp_70c2f4f52
 }
 
 
-operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_1_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_1_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   operations_research::MPConstraint *result = 0 ;
   operations_research::MPConstraint *_swig_go_result;
@@ -536,7 +567,7 @@ operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_1_ilp_70c2f4f52
 }
 
 
-operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_2_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, double _swig_go_1, double _swig_go_2, std::string *_swig_go_3) {
+operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_2_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, double _swig_go_1, double _swig_go_2, _gostring_ _swig_go_3) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   double arg2 ;
   double arg3 ;
@@ -547,7 +578,10 @@ operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_2_ilp_70c2f4f52
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
   arg2 = (double)_swig_go_1; 
   arg3 = (double)_swig_go_2; 
-  arg4 = *(std::string **)&_swig_go_3; 
+  
+  std::string arg4_str(_swig_go_3.p, _swig_go_3.n);
+  arg4 = &arg4_str;
+  
   
   result = (operations_research::MPConstraint *)(arg1)->MakeRowConstraint(arg2,arg3,(std::string const &)*arg4);
   *(operations_research::MPConstraint **)&_swig_go_result = (operations_research::MPConstraint *)result; 
@@ -555,14 +589,17 @@ operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_2_ilp_70c2f4f52
 }
 
 
-operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_3_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, std::string *_swig_go_1) {
+operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_3_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, _gostring_ _swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   std::string *arg2 = 0 ;
   operations_research::MPConstraint *result = 0 ;
   operations_research::MPConstraint *_swig_go_result;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
-  arg2 = *(std::string **)&_swig_go_1; 
+  
+  std::string arg2_str(_swig_go_1.p, _swig_go_1.n);
+  arg2 = &arg2_str;
+  
   
   result = (operations_research::MPConstraint *)(arg1)->MakeRowConstraint((std::string const &)*arg2);
   *(operations_research::MPConstraint **)&_swig_go_result = (operations_research::MPConstraint *)result; 
@@ -570,7 +607,7 @@ operations_research::MPConstraint *_wrap_Solver_Constraint__SWIG_3_ilp_70c2f4f52
 }
 
 
-operations_research::MPObjective *_wrap_Solver_Objective_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+operations_research::MPObjective *_wrap_Solver_Objective_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   operations_research::MPObjective *result = 0 ;
   operations_research::MPObjective *_swig_go_result;
@@ -583,7 +620,7 @@ operations_research::MPObjective *_wrap_Solver_Objective_ilp_70c2f4f52bc62623(op
 }
 
 
-intgo _wrap_OPTIMAL_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_OPTIMAL_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::ResultStatus result;
   intgo _swig_go_result;
   
@@ -595,7 +632,7 @@ intgo _wrap_OPTIMAL_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_FEASIBLE_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_FEASIBLE_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::ResultStatus result;
   intgo _swig_go_result;
   
@@ -607,7 +644,7 @@ intgo _wrap_FEASIBLE_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_INFEASIBLE_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_INFEASIBLE_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::ResultStatus result;
   intgo _swig_go_result;
   
@@ -619,7 +656,7 @@ intgo _wrap_INFEASIBLE_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_UNBOUNDED_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_UNBOUNDED_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::ResultStatus result;
   intgo _swig_go_result;
   
@@ -631,7 +668,7 @@ intgo _wrap_UNBOUNDED_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_ABNORMAL_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_ABNORMAL_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::ResultStatus result;
   intgo _swig_go_result;
   
@@ -643,7 +680,7 @@ intgo _wrap_ABNORMAL_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_NOT_SOLVED_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_NOT_SOLVED_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::ResultStatus result;
   intgo _swig_go_result;
   
@@ -655,7 +692,7 @@ intgo _wrap_NOT_SOLVED_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_Solver_Solve__SWIG_0_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+intgo _wrap_Solver_Solve__SWIG_0_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   operations_research::MPSolver::ResultStatus result;
   intgo _swig_go_result;
@@ -668,7 +705,7 @@ intgo _wrap_Solver_Solve__SWIG_0_ilp_70c2f4f52bc62623(operations_research::MPSol
 }
 
 
-intgo _wrap_Solver_Solve__SWIG_1_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, operations_research::MPSolverParameters *_swig_go_1) {
+intgo _wrap_Solver_Solve__SWIG_1_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, operations_research::MPSolverParameters *_swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   operations_research::MPSolverParameters *arg2 = 0 ;
   operations_research::MPSolver::ResultStatus result;
@@ -683,7 +720,7 @@ intgo _wrap_Solver_Solve__SWIG_1_ilp_70c2f4f52bc62623(operations_research::MPSol
 }
 
 
-std::vector< double > *_wrap_Solver_ComputeConstraintActivities_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+std::vector< double > *_wrap_Solver_ComputeConstraintActivities_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   std::vector< double > result;
   std::vector< double > *_swig_go_result;
@@ -696,7 +733,7 @@ std::vector< double > *_wrap_Solver_ComputeConstraintActivities_ilp_70c2f4f52bc6
 }
 
 
-bool _wrap_Solver_VerifySolution_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, double _swig_go_1, bool _swig_go_2) {
+bool _wrap_Solver_VerifySolution_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, double _swig_go_1, bool _swig_go_2) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   double arg2 ;
   bool arg3 ;
@@ -713,7 +750,7 @@ bool _wrap_Solver_VerifySolution_ilp_70c2f4f52bc62623(operations_research::MPSol
 }
 
 
-bool _wrap_Solver_InterruptSolve_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+bool _wrap_Solver_InterruptSolve_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   bool result;
   bool _swig_go_result;
@@ -726,14 +763,17 @@ bool _wrap_Solver_InterruptSolve_ilp_70c2f4f52bc62623(operations_research::MPSol
 }
 
 
-bool _wrap_Solver_SetSolverSpecificParametersAsString_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, std::string *_swig_go_1) {
+bool _wrap_Solver_SetSolverSpecificParametersAsString_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, _gostring_ _swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   std::string *arg2 = 0 ;
   bool result;
   bool _swig_go_result;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
-  arg2 = *(std::string **)&_swig_go_1; 
+  
+  std::string arg2_str(_swig_go_1.p, _swig_go_1.n);
+  arg2 = &arg2_str;
+  
   
   result = (bool)(arg1)->SetSolverSpecificParametersAsString((std::string const &)*arg2);
   _swig_go_result = result; 
@@ -741,7 +781,7 @@ bool _wrap_Solver_SetSolverSpecificParametersAsString_ilp_70c2f4f52bc62623(opera
 }
 
 
-intgo _wrap_FREE_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_FREE_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::BasisStatus result;
   intgo _swig_go_result;
   
@@ -753,7 +793,7 @@ intgo _wrap_FREE_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_AT_LOWER_BOUND_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_AT_LOWER_BOUND_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::BasisStatus result;
   intgo _swig_go_result;
   
@@ -765,7 +805,7 @@ intgo _wrap_AT_LOWER_BOUND_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_AT_UPPER_BOUND_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_AT_UPPER_BOUND_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::BasisStatus result;
   intgo _swig_go_result;
   
@@ -777,7 +817,7 @@ intgo _wrap_AT_UPPER_BOUND_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_FIXED_VALUE_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_FIXED_VALUE_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::BasisStatus result;
   intgo _swig_go_result;
   
@@ -789,7 +829,7 @@ intgo _wrap_FIXED_VALUE_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_BASIC_Solver_ilp_70c2f4f52bc62623() {
+intgo _wrap_BASIC_Solver_ortools_73e3846564b60880() {
   operations_research::MPSolver::BasisStatus result;
   intgo _swig_go_result;
   
@@ -801,7 +841,7 @@ intgo _wrap_BASIC_Solver_ilp_70c2f4f52bc62623() {
 }
 
 
-double _wrap_Solver_infinity_ilp_70c2f4f52bc62623() {
+double _wrap_Solver_infinity_ortools_73e3846564b60880() {
   double result;
   double _swig_go_result;
   
@@ -812,7 +852,7 @@ double _wrap_Solver_infinity_ilp_70c2f4f52bc62623() {
 }
 
 
-void _wrap_Solver_EnableOutput_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+void _wrap_Solver_EnableOutput_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
@@ -822,7 +862,7 @@ void _wrap_Solver_EnableOutput_ilp_70c2f4f52bc62623(operations_research::MPSolve
 }
 
 
-void _wrap_Solver_SuppressOutput_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+void _wrap_Solver_SuppressOutput_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
@@ -832,7 +872,7 @@ void _wrap_Solver_SuppressOutput_ilp_70c2f4f52bc62623(operations_research::MPSol
 }
 
 
-void _wrap_Solver_set_time_limit_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, int64 *_swig_go_1) {
+void _wrap_Solver_set_time_limit_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, int64 *_swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   int64 arg2 ;
   int64 *argp2 ;
@@ -851,7 +891,7 @@ void _wrap_Solver_set_time_limit_ilp_70c2f4f52bc62623(operations_research::MPSol
 }
 
 
-int64 *_wrap_Solver_wall_time_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+int64 *_wrap_Solver_wall_time_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   int64 result;
   int64 *_swig_go_result;
@@ -864,7 +904,7 @@ int64 *_wrap_Solver_wall_time_ilp_70c2f4f52bc62623(operations_research::MPSolver
 }
 
 
-int64 *_wrap_Solver_iterations_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+int64 *_wrap_Solver_iterations_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   int64 result;
   int64 *_swig_go_result;
@@ -877,7 +917,7 @@ int64 *_wrap_Solver_iterations_ilp_70c2f4f52bc62623(operations_research::MPSolve
 }
 
 
-int64 *_wrap_Solver_nodes_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+int64 *_wrap_Solver_nodes_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   int64 result;
   int64 *_swig_go_result;
@@ -890,7 +930,7 @@ int64 *_wrap_Solver_nodes_ilp_70c2f4f52bc62623(operations_research::MPSolver *_s
 }
 
 
-double _wrap_Solver_ComputeExactConditionNumber_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+double _wrap_Solver_ComputeExactConditionNumber_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   double result;
   double _swig_go_result;
@@ -903,54 +943,65 @@ double _wrap_Solver_ComputeExactConditionNumber_ilp_70c2f4f52bc62623(operations_
 }
 
 
-std::string *_wrap_Solver_ExportModelAsLpFormat_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, bool _swig_go_1) {
+_gostring_ _wrap_Solver_ExportModelAsLpFormat_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, bool _swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   bool arg2 ;
   std::string result;
-  std::string *_swig_go_result;
+  _gostring_ _swig_go_result;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
   arg2 = (bool)_swig_go_1; 
   
   result = operations_research_MPSolver_ExportModelAsLpFormat(arg1,arg2);
-  *(std::string **)&_swig_go_result = new std::string(result); 
+  _swig_go_result = Swig_AllocateString((&result)->data(), (&result)->length()); 
   return _swig_go_result;
 }
 
 
-std::string *_wrap_Solver_ExportModelAsMpsFormat_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, bool _swig_go_1, bool _swig_go_2) {
+_gostring_ _wrap_Solver_ExportModelAsMpsFormat_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, bool _swig_go_1, bool _swig_go_2) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   bool arg2 ;
   bool arg3 ;
   std::string result;
-  std::string *_swig_go_result;
+  _gostring_ _swig_go_result;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
   arg2 = (bool)_swig_go_1; 
   arg3 = (bool)_swig_go_2; 
   
   result = operations_research_MPSolver_ExportModelAsMpsFormat(arg1,arg2,arg3);
-  *(std::string **)&_swig_go_result = new std::string(result); 
+  _swig_go_result = Swig_AllocateString((&result)->data(), (&result)->length()); 
   return _swig_go_result;
 }
 
 
-std::string *_wrap_Solver_LoadModelFromProto_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, operations_research::MPModelProto *_swig_go_1) {
+_gostring_ _wrap_Solver_LoadModelFromProto_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, operations_research::MPModelProto *_swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   operations_research::MPModelProto *arg2 = 0 ;
   std::string result;
-  std::string *_swig_go_result;
+  _gostring_ _swig_go_result;
   
   arg1 = *(operations_research::MPSolver **)&_swig_go_0; 
   arg2 = *(operations_research::MPModelProto **)&_swig_go_1; 
   
   result = operations_research_MPSolver_LoadModelFromProto(arg1,(operations_research::MPModelProto const &)*arg2);
-  *(std::string **)&_swig_go_result = new std::string(result); 
+  _swig_go_result = Swig_AllocateString((&result)->data(), (&result)->length()); 
   return _swig_go_result;
 }
 
 
-void _wrap_Solver_SetTimeLimit_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0, int64 *_swig_go_1) {
+double _wrap_Solver_PositiveInfinity_ortools_73e3846564b60880() {
+  double result;
+  double _swig_go_result;
+  
+  
+  result = (double)operations_research_MPSolver_PositiveInfinity();
+  _swig_go_result = result; 
+  return _swig_go_result;
+}
+
+
+void _wrap_Solver_SetTimeLimit_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0, int64 *_swig_go_1) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   int64 arg2 ;
   int64 *argp2 ;
@@ -969,7 +1020,7 @@ void _wrap_Solver_SetTimeLimit_ilp_70c2f4f52bc62623(operations_research::MPSolve
 }
 
 
-int64 *_wrap_Solver_WallTime_ilp_70c2f4f52bc62623(operations_research::MPSolver *_swig_go_0) {
+int64 *_wrap_Solver_WallTime_ortools_73e3846564b60880(operations_research::MPSolver *_swig_go_0) {
   operations_research::MPSolver *arg1 = (operations_research::MPSolver *) 0 ;
   int64 result;
   int64 *_swig_go_result;
@@ -982,7 +1033,7 @@ int64 *_wrap_Solver_WallTime_ilp_70c2f4f52bc62623(operations_research::MPSolver 
 }
 
 
-void _wrap_Objective_Clear_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+void _wrap_Objective_Clear_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   
   arg1 = *(operations_research::MPObjective **)&_swig_go_0; 
@@ -992,7 +1043,7 @@ void _wrap_Objective_Clear_ilp_70c2f4f52bc62623(operations_research::MPObjective
 }
 
 
-void _wrap_Objective_SetCoefficient_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0, operations_research::MPVariable *_swig_go_1, double _swig_go_2) {
+void _wrap_Objective_SetCoefficient_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0, operations_research::MPVariable *_swig_go_1, double _swig_go_2) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   operations_research::MPVariable *arg2 = (operations_research::MPVariable *) (operations_research::MPVariable *)0 ;
   double arg3 ;
@@ -1006,7 +1057,7 @@ void _wrap_Objective_SetCoefficient_ilp_70c2f4f52bc62623(operations_research::MP
 }
 
 
-double _wrap_Objective_GetCoefficient_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0, operations_research::MPVariable *_swig_go_1) {
+double _wrap_Objective_GetCoefficient_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0, operations_research::MPVariable *_swig_go_1) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   operations_research::MPVariable *arg2 = (operations_research::MPVariable *) (operations_research::MPVariable *)0 ;
   double result;
@@ -1021,7 +1072,7 @@ double _wrap_Objective_GetCoefficient_ilp_70c2f4f52bc62623(operations_research::
 }
 
 
-void _wrap_Objective_SetOffset_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0, double _swig_go_1) {
+void _wrap_Objective_SetOffset_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0, double _swig_go_1) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   double arg2 ;
   
@@ -1033,7 +1084,7 @@ void _wrap_Objective_SetOffset_ilp_70c2f4f52bc62623(operations_research::MPObjec
 }
 
 
-double _wrap_Objective_offset_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+double _wrap_Objective_offset_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   double result;
   double _swig_go_result;
@@ -1046,7 +1097,7 @@ double _wrap_Objective_offset_ilp_70c2f4f52bc62623(operations_research::MPObject
 }
 
 
-void _wrap_Objective_AddOffset_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0, double _swig_go_1) {
+void _wrap_Objective_AddOffset_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0, double _swig_go_1) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   double arg2 ;
   
@@ -1058,7 +1109,7 @@ void _wrap_Objective_AddOffset_ilp_70c2f4f52bc62623(operations_research::MPObjec
 }
 
 
-void _wrap_Objective_SetOptimizationDirection_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0, bool _swig_go_1) {
+void _wrap_Objective_SetOptimizationDirection_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0, bool _swig_go_1) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   bool arg2 ;
   
@@ -1070,7 +1121,7 @@ void _wrap_Objective_SetOptimizationDirection_ilp_70c2f4f52bc62623(operations_re
 }
 
 
-void _wrap_Objective_SetMinimization_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+void _wrap_Objective_SetMinimization_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   
   arg1 = *(operations_research::MPObjective **)&_swig_go_0; 
@@ -1080,7 +1131,7 @@ void _wrap_Objective_SetMinimization_ilp_70c2f4f52bc62623(operations_research::M
 }
 
 
-void _wrap_Objective_SetMaximization_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+void _wrap_Objective_SetMaximization_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   
   arg1 = *(operations_research::MPObjective **)&_swig_go_0; 
@@ -1090,7 +1141,7 @@ void _wrap_Objective_SetMaximization_ilp_70c2f4f52bc62623(operations_research::M
 }
 
 
-bool _wrap_Objective_maximization_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+bool _wrap_Objective_maximization_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   bool result;
   bool _swig_go_result;
@@ -1103,7 +1154,7 @@ bool _wrap_Objective_maximization_ilp_70c2f4f52bc62623(operations_research::MPOb
 }
 
 
-bool _wrap_Objective_minimization_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+bool _wrap_Objective_minimization_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   bool result;
   bool _swig_go_result;
@@ -1116,7 +1167,7 @@ bool _wrap_Objective_minimization_ilp_70c2f4f52bc62623(operations_research::MPOb
 }
 
 
-double _wrap_Objective_Value_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+double _wrap_Objective_Value_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   double result;
   double _swig_go_result;
@@ -1129,7 +1180,7 @@ double _wrap_Objective_Value_ilp_70c2f4f52bc62623(operations_research::MPObjecti
 }
 
 
-double _wrap_Objective_BestBound_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+double _wrap_Objective_BestBound_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   double result;
   double _swig_go_result;
@@ -1142,7 +1193,7 @@ double _wrap_Objective_BestBound_ilp_70c2f4f52bc62623(operations_research::MPObj
 }
 
 
-void _wrap_delete_Objective_ilp_70c2f4f52bc62623(operations_research::MPObjective *_swig_go_0) {
+void _wrap_delete_Objective_ortools_73e3846564b60880(operations_research::MPObjective *_swig_go_0) {
   operations_research::MPObjective *arg1 = (operations_research::MPObjective *) 0 ;
   
   arg1 = *(operations_research::MPObjective **)&_swig_go_0; 
@@ -1152,20 +1203,20 @@ void _wrap_delete_Objective_ilp_70c2f4f52bc62623(operations_research::MPObjectiv
 }
 
 
-std::string *_wrap_Variable_name_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+_gostring_ _wrap_Variable_name_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   std::string *result = 0 ;
-  std::string *_swig_go_result;
+  _gostring_ _swig_go_result;
   
   arg1 = *(operations_research::MPVariable **)&_swig_go_0; 
   
   result = (std::string *) &((operations_research::MPVariable const *)arg1)->name();
-  *(std::string **)&_swig_go_result = result; 
+  _swig_go_result = Swig_AllocateString((*result).data(), (*result).length()); 
   return _swig_go_result;
 }
 
 
-bool _wrap_Variable_integer_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+bool _wrap_Variable_integer_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   bool result;
   bool _swig_go_result;
@@ -1178,7 +1229,7 @@ bool _wrap_Variable_integer_ilp_70c2f4f52bc62623(operations_research::MPVariable
 }
 
 
-double _wrap_Variable_solution_value_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+double _wrap_Variable_solution_value_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   double result;
   double _swig_go_result;
@@ -1191,7 +1242,7 @@ double _wrap_Variable_solution_value_ilp_70c2f4f52bc62623(operations_research::M
 }
 
 
-intgo _wrap_Variable_index_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+intgo _wrap_Variable_index_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   int result;
   intgo _swig_go_result;
@@ -1204,7 +1255,7 @@ intgo _wrap_Variable_index_ilp_70c2f4f52bc62623(operations_research::MPVariable 
 }
 
 
-double _wrap_Variable_lb_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+double _wrap_Variable_lb_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   double result;
   double _swig_go_result;
@@ -1217,7 +1268,7 @@ double _wrap_Variable_lb_ilp_70c2f4f52bc62623(operations_research::MPVariable *_
 }
 
 
-double _wrap_Variable_ub_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+double _wrap_Variable_ub_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   double result;
   double _swig_go_result;
@@ -1230,7 +1281,7 @@ double _wrap_Variable_ub_ilp_70c2f4f52bc62623(operations_research::MPVariable *_
 }
 
 
-double _wrap_Variable_reduced_cost_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+double _wrap_Variable_reduced_cost_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   double result;
   double _swig_go_result;
@@ -1243,7 +1294,7 @@ double _wrap_Variable_reduced_cost_ilp_70c2f4f52bc62623(operations_research::MPV
 }
 
 
-intgo _wrap_Variable_basis_status_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+intgo _wrap_Variable_basis_status_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   operations_research::MPSolver::BasisStatus result;
   intgo _swig_go_result;
@@ -1256,33 +1307,33 @@ intgo _wrap_Variable_basis_status_ilp_70c2f4f52bc62623(operations_research::MPVa
 }
 
 
-std::string *_wrap_Variable___str___ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+_gostring_ _wrap_Variable___str___ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   std::string result;
-  std::string *_swig_go_result;
+  _gostring_ _swig_go_result;
   
   arg1 = *(operations_research::MPVariable **)&_swig_go_0; 
   
   result = operations_research_MPVariable___str__(arg1);
-  *(std::string **)&_swig_go_result = new std::string(result); 
+  _swig_go_result = Swig_AllocateString((&result)->data(), (&result)->length()); 
   return _swig_go_result;
 }
 
 
-std::string *_wrap_Variable___repr___ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+_gostring_ _wrap_Variable___repr___ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   std::string result;
-  std::string *_swig_go_result;
+  _gostring_ _swig_go_result;
   
   arg1 = *(operations_research::MPVariable **)&_swig_go_0; 
   
   result = operations_research_MPVariable___repr__(arg1);
-  *(std::string **)&_swig_go_result = new std::string(result); 
+  _swig_go_result = Swig_AllocateString((&result)->data(), (&result)->length()); 
   return _swig_go_result;
 }
 
 
-double _wrap_Variable_SolutionValue_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+double _wrap_Variable_SolutionValue_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   double result;
   double _swig_go_result;
@@ -1295,7 +1346,7 @@ double _wrap_Variable_SolutionValue_ilp_70c2f4f52bc62623(operations_research::MP
 }
 
 
-void _wrap_Variable_SetLb_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0, double _swig_go_1) {
+void _wrap_Variable_SetLb_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0, double _swig_go_1) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   double arg2 ;
   
@@ -1307,7 +1358,7 @@ void _wrap_Variable_SetLb_ilp_70c2f4f52bc62623(operations_research::MPVariable *
 }
 
 
-void _wrap_Variable_SetUb_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0, double _swig_go_1) {
+void _wrap_Variable_SetUb_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0, double _swig_go_1) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   double arg2 ;
   
@@ -1319,7 +1370,7 @@ void _wrap_Variable_SetUb_ilp_70c2f4f52bc62623(operations_research::MPVariable *
 }
 
 
-double _wrap_Variable_ReducedCost_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+double _wrap_Variable_ReducedCost_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   double result;
   double _swig_go_result;
@@ -1332,7 +1383,7 @@ double _wrap_Variable_ReducedCost_ilp_70c2f4f52bc62623(operations_research::MPVa
 }
 
 
-void _wrap_delete_Variable_ilp_70c2f4f52bc62623(operations_research::MPVariable *_swig_go_0) {
+void _wrap_delete_Variable_ortools_73e3846564b60880(operations_research::MPVariable *_swig_go_0) {
   operations_research::MPVariable *arg1 = (operations_research::MPVariable *) 0 ;
   
   arg1 = *(operations_research::MPVariable **)&_swig_go_0; 
@@ -1342,20 +1393,20 @@ void _wrap_delete_Variable_ilp_70c2f4f52bc62623(operations_research::MPVariable 
 }
 
 
-std::string *_wrap_Constraint_name_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0) {
+_gostring_ _wrap_Constraint_name_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   std::string *result = 0 ;
-  std::string *_swig_go_result;
+  _gostring_ _swig_go_result;
   
   arg1 = *(operations_research::MPConstraint **)&_swig_go_0; 
   
   result = (std::string *) &((operations_research::MPConstraint const *)arg1)->name();
-  *(std::string **)&_swig_go_result = result; 
+  _swig_go_result = Swig_AllocateString((*result).data(), (*result).length()); 
   return _swig_go_result;
 }
 
 
-void _wrap_Constraint_SetCoefficient_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0, operations_research::MPVariable *_swig_go_1, double _swig_go_2) {
+void _wrap_Constraint_SetCoefficient_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0, operations_research::MPVariable *_swig_go_1, double _swig_go_2) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   operations_research::MPVariable *arg2 = (operations_research::MPVariable *) (operations_research::MPVariable *)0 ;
   double arg3 ;
@@ -1369,7 +1420,7 @@ void _wrap_Constraint_SetCoefficient_ilp_70c2f4f52bc62623(operations_research::M
 }
 
 
-double _wrap_Constraint_GetCoefficient_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0, operations_research::MPVariable *_swig_go_1) {
+double _wrap_Constraint_GetCoefficient_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0, operations_research::MPVariable *_swig_go_1) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   operations_research::MPVariable *arg2 = (operations_research::MPVariable *) (operations_research::MPVariable *)0 ;
   double result;
@@ -1384,7 +1435,7 @@ double _wrap_Constraint_GetCoefficient_ilp_70c2f4f52bc62623(operations_research:
 }
 
 
-double _wrap_Constraint_lb_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0) {
+double _wrap_Constraint_lb_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double result;
   double _swig_go_result;
@@ -1397,7 +1448,7 @@ double _wrap_Constraint_lb_ilp_70c2f4f52bc62623(operations_research::MPConstrain
 }
 
 
-double _wrap_Constraint_ub_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0) {
+double _wrap_Constraint_ub_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double result;
   double _swig_go_result;
@@ -1410,7 +1461,7 @@ double _wrap_Constraint_ub_ilp_70c2f4f52bc62623(operations_research::MPConstrain
 }
 
 
-void _wrap_Constraint_SetLB_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0, double _swig_go_1) {
+void _wrap_Constraint_SetLB_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0, double _swig_go_1) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double arg2 ;
   
@@ -1422,7 +1473,7 @@ void _wrap_Constraint_SetLB_ilp_70c2f4f52bc62623(operations_research::MPConstrai
 }
 
 
-void _wrap_Constraint_SetUB_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0, double _swig_go_1) {
+void _wrap_Constraint_SetUB_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0, double _swig_go_1) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double arg2 ;
   
@@ -1434,7 +1485,7 @@ void _wrap_Constraint_SetUB_ilp_70c2f4f52bc62623(operations_research::MPConstrai
 }
 
 
-void _wrap_Constraint_SetBounds_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0, double _swig_go_1, double _swig_go_2) {
+void _wrap_Constraint_SetBounds_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0, double _swig_go_1, double _swig_go_2) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double arg2 ;
   double arg3 ;
@@ -1448,7 +1499,7 @@ void _wrap_Constraint_SetBounds_ilp_70c2f4f52bc62623(operations_research::MPCons
 }
 
 
-void _wrap_Constraint_set_is_lazy_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0, bool _swig_go_1) {
+void _wrap_Constraint_set_is_lazy_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0, bool _swig_go_1) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   bool arg2 ;
   
@@ -1460,7 +1511,7 @@ void _wrap_Constraint_set_is_lazy_ilp_70c2f4f52bc62623(operations_research::MPCo
 }
 
 
-intgo _wrap_Constraint_index_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0) {
+intgo _wrap_Constraint_index_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   int result;
   intgo _swig_go_result;
@@ -1473,7 +1524,7 @@ intgo _wrap_Constraint_index_ilp_70c2f4f52bc62623(operations_research::MPConstra
 }
 
 
-double _wrap_Constraint_dual_value_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0) {
+double _wrap_Constraint_dual_value_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double result;
   double _swig_go_result;
@@ -1486,7 +1537,7 @@ double _wrap_Constraint_dual_value_ilp_70c2f4f52bc62623(operations_research::MPC
 }
 
 
-intgo _wrap_Constraint_basis_status_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0) {
+intgo _wrap_Constraint_basis_status_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   operations_research::MPSolver::BasisStatus result;
   intgo _swig_go_result;
@@ -1499,7 +1550,7 @@ intgo _wrap_Constraint_basis_status_ilp_70c2f4f52bc62623(operations_research::MP
 }
 
 
-void _wrap_Constraint_SetLb_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0, double _swig_go_1) {
+void _wrap_Constraint_SetLb_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0, double _swig_go_1) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double arg2 ;
   
@@ -1511,7 +1562,7 @@ void _wrap_Constraint_SetLb_ilp_70c2f4f52bc62623(operations_research::MPConstrai
 }
 
 
-void _wrap_Constraint_SetUb_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0, double _swig_go_1) {
+void _wrap_Constraint_SetUb_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0, double _swig_go_1) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double arg2 ;
   
@@ -1523,7 +1574,7 @@ void _wrap_Constraint_SetUb_ilp_70c2f4f52bc62623(operations_research::MPConstrai
 }
 
 
-double _wrap_Constraint_DualValue_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0) {
+double _wrap_Constraint_DualValue_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   double result;
   double _swig_go_result;
@@ -1536,7 +1587,7 @@ double _wrap_Constraint_DualValue_ilp_70c2f4f52bc62623(operations_research::MPCo
 }
 
 
-void _wrap_delete_Constraint_ilp_70c2f4f52bc62623(operations_research::MPConstraint *_swig_go_0) {
+void _wrap_delete_Constraint_ortools_73e3846564b60880(operations_research::MPConstraint *_swig_go_0) {
   operations_research::MPConstraint *arg1 = (operations_research::MPConstraint *) 0 ;
   
   arg1 = *(operations_research::MPConstraint **)&_swig_go_0; 
@@ -1546,7 +1597,7 @@ void _wrap_delete_Constraint_ilp_70c2f4f52bc62623(operations_research::MPConstra
 }
 
 
-intgo _wrap_RELATIVE_MIP_GAP_MPSolverParameters_ilp_70c2f4f52bc62623() {
+intgo _wrap_RELATIVE_MIP_GAP_MPSolverParameters_ortools_73e3846564b60880() {
   operations_research::MPSolverParameters::DoubleParam result;
   intgo _swig_go_result;
   
@@ -1558,7 +1609,7 @@ intgo _wrap_RELATIVE_MIP_GAP_MPSolverParameters_ilp_70c2f4f52bc62623() {
 }
 
 
-intgo _wrap_PRESOLVE_MPSolverParameters_ilp_70c2f4f52bc62623() {
+intgo _wrap_PRESOLVE_MPSolverParameters_ortools_73e3846564b60880() {
   operations_research::MPSolverParameters::IntegerParam result;
   intgo _swig_go_result;
   
@@ -1570,7 +1621,7 @@ intgo _wrap_PRESOLVE_MPSolverParameters_ilp_70c2f4f52bc62623() {
 }
 
 
-double _wrap_MPSolverParameters_kDefaultPrimalTolerance_get_ilp_70c2f4f52bc62623() {
+double _wrap_MPSolverParameters_kDefaultPrimalTolerance_get_ortools_73e3846564b60880() {
   double result;
   double _swig_go_result;
   
@@ -1581,7 +1632,7 @@ double _wrap_MPSolverParameters_kDefaultPrimalTolerance_get_ilp_70c2f4f52bc62623
 }
 
 
-operations_research::MPSolverParameters *_wrap_new_MPSolverParameters_ilp_70c2f4f52bc62623() {
+operations_research::MPSolverParameters *_wrap_new_MPSolverParameters_ortools_73e3846564b60880() {
   operations_research::MPSolverParameters *result = 0 ;
   operations_research::MPSolverParameters *_swig_go_result;
   
@@ -1592,7 +1643,7 @@ operations_research::MPSolverParameters *_wrap_new_MPSolverParameters_ilp_70c2f4
 }
 
 
-void _wrap_MPSolverParameters_SetDoubleParam_ilp_70c2f4f52bc62623(operations_research::MPSolverParameters *_swig_go_0, intgo _swig_go_1, double _swig_go_2) {
+void _wrap_MPSolverParameters_SetDoubleParam_ortools_73e3846564b60880(operations_research::MPSolverParameters *_swig_go_0, intgo _swig_go_1, double _swig_go_2) {
   operations_research::MPSolverParameters *arg1 = (operations_research::MPSolverParameters *) 0 ;
   operations_research::MPSolverParameters::DoubleParam arg2 ;
   double arg3 ;
@@ -1606,7 +1657,7 @@ void _wrap_MPSolverParameters_SetDoubleParam_ilp_70c2f4f52bc62623(operations_res
 }
 
 
-void _wrap_MPSolverParameters_SetIntegerParam_ilp_70c2f4f52bc62623(operations_research::MPSolverParameters *_swig_go_0, intgo _swig_go_1, intgo _swig_go_2) {
+void _wrap_MPSolverParameters_SetIntegerParam_ortools_73e3846564b60880(operations_research::MPSolverParameters *_swig_go_0, intgo _swig_go_1, intgo _swig_go_2) {
   operations_research::MPSolverParameters *arg1 = (operations_research::MPSolverParameters *) 0 ;
   operations_research::MPSolverParameters::IntegerParam arg2 ;
   int arg3 ;
@@ -1620,7 +1671,7 @@ void _wrap_MPSolverParameters_SetIntegerParam_ilp_70c2f4f52bc62623(operations_re
 }
 
 
-double _wrap_MPSolverParameters_GetDoubleParam_ilp_70c2f4f52bc62623(operations_research::MPSolverParameters *_swig_go_0, intgo _swig_go_1) {
+double _wrap_MPSolverParameters_GetDoubleParam_ortools_73e3846564b60880(operations_research::MPSolverParameters *_swig_go_0, intgo _swig_go_1) {
   operations_research::MPSolverParameters *arg1 = (operations_research::MPSolverParameters *) 0 ;
   operations_research::MPSolverParameters::DoubleParam arg2 ;
   double result;
@@ -1635,7 +1686,7 @@ double _wrap_MPSolverParameters_GetDoubleParam_ilp_70c2f4f52bc62623(operations_r
 }
 
 
-intgo _wrap_MPSolverParameters_GetIntegerParam_ilp_70c2f4f52bc62623(operations_research::MPSolverParameters *_swig_go_0, intgo _swig_go_1) {
+intgo _wrap_MPSolverParameters_GetIntegerParam_ortools_73e3846564b60880(operations_research::MPSolverParameters *_swig_go_0, intgo _swig_go_1) {
   operations_research::MPSolverParameters *arg1 = (operations_research::MPSolverParameters *) 0 ;
   operations_research::MPSolverParameters::IntegerParam arg2 ;
   int result;
@@ -1650,7 +1701,7 @@ intgo _wrap_MPSolverParameters_GetIntegerParam_ilp_70c2f4f52bc62623(operations_r
 }
 
 
-void _wrap_delete_MPSolverParameters_ilp_70c2f4f52bc62623(operations_research::MPSolverParameters *_swig_go_0) {
+void _wrap_delete_MPSolverParameters_ortools_73e3846564b60880(operations_research::MPSolverParameters *_swig_go_0) {
   operations_research::MPSolverParameters *arg1 = (operations_research::MPSolverParameters *) 0 ;
   
   arg1 = *(operations_research::MPSolverParameters **)&_swig_go_0; 
