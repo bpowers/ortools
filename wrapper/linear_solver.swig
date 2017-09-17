@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// This .swig file exposes the linear programming and integer programming
+// This .i file exposes the linear programming and integer programming
 //
 // The python API is enriched by custom code defined here, making it
 // extremely intuitive, like:
@@ -23,13 +23,14 @@
 //   solver.Maximize(10 * x1 + 6 * x2)
 //
 // USAGE EXAMPLES:
-// - python/linear_programming.py
+// - examples/python/linear_programming.py
 // - ./pywraplp_test.py
 //
 // TODO(user): test all the APIs that are currently marked as 'untested'.
 
 %include "ortools/base/base.i"
 %include "go/std_string.i"
+
 
 // We need to forward-declare the proto here, so that the PROTO_* macros
 // involving them work correctly. The order matters very much: this declaration
@@ -41,7 +42,7 @@ class MPSolutionResponse;
 }  // namespace operations_research
 
 %{
-#include "linear_solver/linear_solver.h"
+#include "ortools/linear_solver/linear_solver.h"
 %}
 
 namespace operations_research {
@@ -140,7 +141,7 @@ namespace operations_research {
 }
 
 %extend MPSolver {
-  static double PositiveInfinity() { return operations_research::MPSolver::infinity(); }
+  static double Infinity() { return operations_research::MPSolver::infinity(); }
   void SetTimeLimit(int64 x) { $self->set_time_limit(x); }
   int64 WallTime() const { return $self->wall_time(); }
   int64 Iterations() const { return $self->iterations(); }
@@ -211,7 +212,13 @@ namespace operations_research {
 %rename (BoolVar) operations_research::MPSolver::MakeBoolVar;  // No unit test
 %rename (IntVar) operations_research::MPSolver::MakeIntVar;
 %rename (NumVar) operations_research::MPSolver::MakeNumVar;
-%rename (Constraint) operations_research::MPSolver::MakeRowConstraint;
+// We intentionally don't expose MakeRowConstraint(LinearExpr), because this
+// "natural language" API is specific to C++: other languages may add their own
+// syntactic sugar on top of MPSolver instead of this.
+%rename (Constraint) operations_research::MPSolver::MakeRowConstraint(double, double);
+%rename (Constraint) operations_research::MPSolver::MakeRowConstraint();
+%rename (Constraint) operations_research::MPSolver::MakeRowConstraint(double, double, const std::string&);
+%rename (Constraint) operations_research::MPSolver::MakeRowConstraint(const std::string&);
 %unignore operations_research::MPSolver::~MPSolver;
 %unignore operations_research::MPSolver::Solve;
 %unignore operations_research::MPSolver::VerifySolution;
@@ -304,10 +311,10 @@ namespace operations_research {
 // TODO(user): unit test kDefaultPrimalTolerance.
 
 // We want to ignore the CoeffMap class; but since it inherits from some
-// hash_map<>, swig complains about an undefined base class. Silence it.
+// std::unordered_map<>, swig complains about an undefined base class. Silence it.
 %warnfilter(401) CoeffMap;
 
-%include "linear_solver/linear_solver.h"
+%include "ortools/linear_solver/linear_solver.h"
 
 %unignoreall
 
@@ -315,6 +322,6 @@ namespace operations_research {
 // def setup_variable_operator(opname):
 //   setattr(Variable, opname,
 //           lambda self, *args: getattr(VariableExpr(self), opname)(*args))
-// for opname in LinearExpr.SUPPORTED_OPERATOR_METHODS:
+// for opname in LinearExpr.OVERRIDDEN_OPERATOR_METHODS:
 //   setup_variable_operator(opname)
 // }  // %pythoncode

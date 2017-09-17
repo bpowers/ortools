@@ -13,8 +13,8 @@
 package ortools
 
 /*
-#cgo CXXFLAGS: -std=c++0x -fwrapv -O4 -DNDEBUG -I/usr/include/ortools -I/home/bpowers/src/or-tools/examples -I/home/bpowers/src/or-tools/src/gen -I/home/bpowers/src/or-tools/dependencies/install/include -DARCH_K8 -Wno-deprecated -I/home/bpowers/src/or-tools/dependencies/install/include -I/home/bpowers/src/or-tools/dependencies/install/include -DUSE_CBC -I/home/bpowers/src/or-tools/dependencies/install/include -DUSE_CLP -DUSE_GLOP -DUSE_BOP -I/home/bpowers/src/or-tools/dependencies/install/include
-#cgo LDFLAGS: -L/home/bpowers/src/or-tools/lib -lortools -lrt -lpthread
+#cgo CXXFLAGS: -std=c++0x -fwrapv -O4 -DNDEBUG -I/usr/include/ortools -DARCH_K8 -Wno-deprecated -DUSE_CBC -DUSE_CLP -DUSE_GLOP -DUSE_BOP
+#cgo LDFLAGS: -L/usr/lib -lortools -lrt -lpthread
 #define intgo swig_intgo
 typedef void *swig_voidp;
 
@@ -46,116 +46,112 @@ typedef _gostring_ swig_type_13;
 typedef _gostring_ swig_type_14;
 typedef _gostring_ swig_type_15;
 typedef _gostring_ swig_type_16;
-typedef _gostring_ swig_type_17;
-extern void _wrap_Swig_free_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern uintptr_t _wrap_Swig_malloc_ortools_8bd0468efa37e4cc(swig_intgo arg1);
-extern swig_intgo _wrap_CLP_LINEAR_PROGRAMMING_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_GLOP_LINEAR_PROGRAMMING_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_CBC_MIXED_INTEGER_PROGRAMMING_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_BOP_INTEGER_PROGRAMMING_Solver_ortools_8bd0468efa37e4cc(void);
-extern uintptr_t _wrap_new_Solver_ortools_8bd0468efa37e4cc(swig_type_1 arg1, swig_intgo arg2);
-extern void _wrap_delete_Solver_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern _Bool _wrap_Solver_SupportsProblemType_ortools_8bd0468efa37e4cc(swig_intgo arg1);
-extern void _wrap_Solver_Clear_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_intgo _wrap_Solver_NumVariables_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern uintptr_t _wrap_Solver_LookupVariable_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_type_2 arg2);
-extern uintptr_t _wrap_Solver_NumVar_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2, double arg3, swig_type_3 arg4);
-extern uintptr_t _wrap_Solver_IntVar_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2, double arg3, swig_type_4 arg4);
-extern uintptr_t _wrap_Solver_BoolVar_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_type_5 arg2);
-extern swig_intgo _wrap_Solver_NumConstraints_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern uintptr_t _wrap_Solver_LookupConstraint_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_type_6 arg2);
-extern uintptr_t _wrap_Solver_Constraint__SWIG_0_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2, double arg3);
-extern uintptr_t _wrap_Solver_Constraint__SWIG_1_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern uintptr_t _wrap_Solver_Constraint__SWIG_2_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2, double arg3, swig_type_7 arg4);
-extern uintptr_t _wrap_Solver_Constraint__SWIG_3_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_type_8 arg2);
-extern uintptr_t _wrap_Solver_Constraint__SWIG_4_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2);
-extern uintptr_t _wrap_Solver_Constraint__SWIG_5_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2, swig_type_9 arg3);
-extern uintptr_t _wrap_Solver_Objective_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_intgo _wrap_OPTIMAL_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_FEASIBLE_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_INFEASIBLE_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_UNBOUNDED_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_ABNORMAL_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_NOT_SOLVED_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_Solver_Solve__SWIG_0_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_intgo _wrap_Solver_Solve__SWIG_1_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2);
-extern uintptr_t _wrap_Solver_ComputeConstraintActivities_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern _Bool _wrap_Solver_VerifySolution_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2, _Bool arg3);
-extern _Bool _wrap_Solver_InterruptSolve_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern _Bool _wrap_Solver_SetSolverSpecificParametersAsString_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_type_10 arg2);
-extern swig_intgo _wrap_FREE_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_AT_LOWER_BOUND_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_AT_UPPER_BOUND_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_FIXED_VALUE_Solver_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_BASIC_Solver_ortools_8bd0468efa37e4cc(void);
-extern double _wrap_Solver_infinity_ortools_8bd0468efa37e4cc(void);
-extern void _wrap_Solver_EnableOutput_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Solver_SuppressOutput_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Solver_set_time_limit_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2);
-extern uintptr_t _wrap_Solver_wall_time_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern uintptr_t _wrap_Solver_iterations_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern uintptr_t _wrap_Solver_nodes_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Solver_ComputeExactConditionNumber_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_type_11 _wrap_Solver_ExportModelAsLpFormat_ortools_8bd0468efa37e4cc(uintptr_t arg1, _Bool arg2);
-extern swig_type_12 _wrap_Solver_ExportModelAsMpsFormat_ortools_8bd0468efa37e4cc(uintptr_t arg1, _Bool arg2, _Bool arg3);
-extern swig_type_13 _wrap_Solver_LoadModelFromProto_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2);
-extern double _wrap_Solver_PositiveInfinity_ortools_8bd0468efa37e4cc(void);
-extern void _wrap_Solver_SetTimeLimit_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2);
-extern uintptr_t _wrap_Solver_WallTime_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Objective_Clear_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Objective_SetCoefficient_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2, double arg3);
-extern double _wrap_Objective_GetCoefficient_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2);
-extern void _wrap_Objective_SetOffset_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2);
-extern double _wrap_Objective_offset_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Objective_AddOffset_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2);
-extern void _wrap_Objective_SetOptimizationDirection_ortools_8bd0468efa37e4cc(uintptr_t arg1, _Bool arg2);
-extern void _wrap_Objective_SetMinimization_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Objective_SetMaximization_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern _Bool _wrap_Objective_maximization_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern _Bool _wrap_Objective_minimization_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Objective_Value_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Objective_BestBound_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_delete_Objective_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_type_14 _wrap_Variable_name_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern _Bool _wrap_Variable_integer_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Variable_solution_value_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_intgo _wrap_Variable_index_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Variable_lb_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Variable_ub_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Variable_reduced_cost_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_intgo _wrap_Variable_basis_status_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_type_15 _wrap_Variable___str___ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_type_16 _wrap_Variable___repr___ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Variable_SolutionValue_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Variable_SetLb_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2);
-extern void _wrap_Variable_SetUb_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2);
-extern double _wrap_Variable_ReducedCost_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_delete_Variable_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_type_17 _wrap_Constraint_name_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Constraint_SetCoefficient_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2, double arg3);
-extern double _wrap_Constraint_GetCoefficient_ortools_8bd0468efa37e4cc(uintptr_t arg1, uintptr_t arg2);
-extern double _wrap_Constraint_lb_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Constraint_ub_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Constraint_SetLB_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2);
-extern void _wrap_Constraint_SetUB_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2);
-extern void _wrap_Constraint_SetBounds_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2, double arg3);
-extern void _wrap_Constraint_set_is_lazy_ortools_8bd0468efa37e4cc(uintptr_t arg1, _Bool arg2);
-extern swig_intgo _wrap_Constraint_index_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern double _wrap_Constraint_dual_value_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_intgo _wrap_Constraint_basis_status_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_Constraint_SetLb_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2);
-extern void _wrap_Constraint_SetUb_ortools_8bd0468efa37e4cc(uintptr_t arg1, double arg2);
-extern double _wrap_Constraint_DualValue_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern void _wrap_delete_Constraint_ortools_8bd0468efa37e4cc(uintptr_t arg1);
-extern swig_intgo _wrap_RELATIVE_MIP_GAP_MPSolverParameters_ortools_8bd0468efa37e4cc(void);
-extern swig_intgo _wrap_PRESOLVE_MPSolverParameters_ortools_8bd0468efa37e4cc(void);
-extern double _wrap_MPSolverParameters_kDefaultPrimalTolerance_get_ortools_8bd0468efa37e4cc(void);
-extern uintptr_t _wrap_new_MPSolverParameters_ortools_8bd0468efa37e4cc(void);
-extern void _wrap_MPSolverParameters_SetDoubleParam_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_intgo arg2, double arg3);
-extern void _wrap_MPSolverParameters_SetIntegerParam_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_intgo arg2, swig_intgo arg3);
-extern double _wrap_MPSolverParameters_GetDoubleParam_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_intgo arg2);
-extern swig_intgo _wrap_MPSolverParameters_GetIntegerParam_ortools_8bd0468efa37e4cc(uintptr_t arg1, swig_intgo arg2);
-extern void _wrap_delete_MPSolverParameters_ortools_8bd0468efa37e4cc(uintptr_t arg1);
+extern void _wrap_Swig_free_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern uintptr_t _wrap_Swig_malloc_ortools_50a07adbe5879be5(swig_intgo arg1);
+extern swig_intgo _wrap_CLP_LINEAR_PROGRAMMING_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_GLOP_LINEAR_PROGRAMMING_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_CBC_MIXED_INTEGER_PROGRAMMING_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_BOP_INTEGER_PROGRAMMING_Solver_ortools_50a07adbe5879be5(void);
+extern uintptr_t _wrap_new_Solver_ortools_50a07adbe5879be5(swig_type_1 arg1, swig_intgo arg2);
+extern void _wrap_delete_Solver_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern _Bool _wrap_Solver_SupportsProblemType_ortools_50a07adbe5879be5(swig_intgo arg1);
+extern void _wrap_Solver_Clear_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_intgo _wrap_Solver_NumVariables_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern uintptr_t _wrap_Solver_LookupVariable_ortools_50a07adbe5879be5(uintptr_t arg1, swig_type_2 arg2);
+extern uintptr_t _wrap_Solver_NumVar_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2, double arg3, swig_type_3 arg4);
+extern uintptr_t _wrap_Solver_IntVar_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2, double arg3, swig_type_4 arg4);
+extern uintptr_t _wrap_Solver_BoolVar_ortools_50a07adbe5879be5(uintptr_t arg1, swig_type_5 arg2);
+extern swig_intgo _wrap_Solver_NumConstraints_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern uintptr_t _wrap_Solver_LookupConstraint_ortools_50a07adbe5879be5(uintptr_t arg1, swig_type_6 arg2);
+extern uintptr_t _wrap_Solver_Constraint__SWIG_0_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2, double arg3);
+extern uintptr_t _wrap_Solver_Constraint__SWIG_1_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern uintptr_t _wrap_Solver_Constraint__SWIG_2_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2, double arg3, swig_type_7 arg4);
+extern uintptr_t _wrap_Solver_Constraint__SWIG_3_ortools_50a07adbe5879be5(uintptr_t arg1, swig_type_8 arg2);
+extern uintptr_t _wrap_Solver_Objective_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_intgo _wrap_OPTIMAL_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_FEASIBLE_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_INFEASIBLE_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_UNBOUNDED_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_ABNORMAL_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_NOT_SOLVED_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_Solver_Solve__SWIG_0_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_intgo _wrap_Solver_Solve__SWIG_1_ortools_50a07adbe5879be5(uintptr_t arg1, uintptr_t arg2);
+extern uintptr_t _wrap_Solver_ComputeConstraintActivities_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern _Bool _wrap_Solver_VerifySolution_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2, _Bool arg3);
+extern _Bool _wrap_Solver_InterruptSolve_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern _Bool _wrap_Solver_SetSolverSpecificParametersAsString_ortools_50a07adbe5879be5(uintptr_t arg1, swig_type_9 arg2);
+extern swig_intgo _wrap_FREE_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_AT_LOWER_BOUND_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_AT_UPPER_BOUND_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_FIXED_VALUE_Solver_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_BASIC_Solver_ortools_50a07adbe5879be5(void);
+extern double _wrap_Solver_infinity_ortools_50a07adbe5879be5(void);
+extern void _wrap_Solver_EnableOutput_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Solver_SuppressOutput_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Solver_set_time_limit_ortools_50a07adbe5879be5(uintptr_t arg1, uintptr_t arg2);
+extern uintptr_t _wrap_Solver_wall_time_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern uintptr_t _wrap_Solver_iterations_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern uintptr_t _wrap_Solver_nodes_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Solver_ComputeExactConditionNumber_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_type_10 _wrap_Solver_ExportModelAsLpFormat_ortools_50a07adbe5879be5(uintptr_t arg1, _Bool arg2);
+extern swig_type_11 _wrap_Solver_ExportModelAsMpsFormat_ortools_50a07adbe5879be5(uintptr_t arg1, _Bool arg2, _Bool arg3);
+extern swig_type_12 _wrap_Solver_LoadModelFromProto_ortools_50a07adbe5879be5(uintptr_t arg1, uintptr_t arg2);
+extern void _wrap_Solver_SetTimeLimit_ortools_50a07adbe5879be5(uintptr_t arg1, uintptr_t arg2);
+extern uintptr_t _wrap_Solver_WallTime_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Objective_Clear_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Objective_SetCoefficient_ortools_50a07adbe5879be5(uintptr_t arg1, uintptr_t arg2, double arg3);
+extern double _wrap_Objective_GetCoefficient_ortools_50a07adbe5879be5(uintptr_t arg1, uintptr_t arg2);
+extern void _wrap_Objective_SetOffset_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2);
+extern double _wrap_Objective_offset_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Objective_AddOffset_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2);
+extern void _wrap_Objective_SetOptimizationDirection_ortools_50a07adbe5879be5(uintptr_t arg1, _Bool arg2);
+extern void _wrap_Objective_SetMinimization_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Objective_SetMaximization_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern _Bool _wrap_Objective_maximization_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern _Bool _wrap_Objective_minimization_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Objective_Value_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Objective_BestBound_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_delete_Objective_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_type_13 _wrap_Variable_name_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern _Bool _wrap_Variable_integer_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Variable_solution_value_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_intgo _wrap_Variable_index_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Variable_lb_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Variable_ub_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Variable_reduced_cost_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_intgo _wrap_Variable_basis_status_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_type_14 _wrap_Variable___str___ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_type_15 _wrap_Variable___repr___ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Variable_SolutionValue_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Variable_SetLb_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2);
+extern void _wrap_Variable_SetUb_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2);
+extern double _wrap_Variable_ReducedCost_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_delete_Variable_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_type_16 _wrap_Constraint_name_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Constraint_SetCoefficient_ortools_50a07adbe5879be5(uintptr_t arg1, uintptr_t arg2, double arg3);
+extern double _wrap_Constraint_GetCoefficient_ortools_50a07adbe5879be5(uintptr_t arg1, uintptr_t arg2);
+extern double _wrap_Constraint_lb_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Constraint_ub_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Constraint_SetLB_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2);
+extern void _wrap_Constraint_SetUB_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2);
+extern void _wrap_Constraint_SetBounds_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2, double arg3);
+extern void _wrap_Constraint_set_is_lazy_ortools_50a07adbe5879be5(uintptr_t arg1, _Bool arg2);
+extern swig_intgo _wrap_Constraint_index_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern double _wrap_Constraint_dual_value_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_intgo _wrap_Constraint_basis_status_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_Constraint_SetLb_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2);
+extern void _wrap_Constraint_SetUb_ortools_50a07adbe5879be5(uintptr_t arg1, double arg2);
+extern double _wrap_Constraint_DualValue_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern void _wrap_delete_Constraint_ortools_50a07adbe5879be5(uintptr_t arg1);
+extern swig_intgo _wrap_RELATIVE_MIP_GAP_MPSolverParameters_ortools_50a07adbe5879be5(void);
+extern swig_intgo _wrap_PRESOLVE_MPSolverParameters_ortools_50a07adbe5879be5(void);
+extern double _wrap_MPSolverParameters_kDefaultPrimalTolerance_get_ortools_50a07adbe5879be5(void);
+extern uintptr_t _wrap_new_MPSolverParameters_ortools_50a07adbe5879be5(void);
+extern void _wrap_MPSolverParameters_SetDoubleParam_ortools_50a07adbe5879be5(uintptr_t arg1, swig_intgo arg2, double arg3);
+extern void _wrap_MPSolverParameters_SetIntegerParam_ortools_50a07adbe5879be5(uintptr_t arg1, swig_intgo arg2, swig_intgo arg3);
+extern double _wrap_MPSolverParameters_GetDoubleParam_ortools_50a07adbe5879be5(uintptr_t arg1, swig_intgo arg2);
+extern swig_intgo _wrap_MPSolverParameters_GetIntegerParam_ortools_50a07adbe5879be5(uintptr_t arg1, swig_intgo arg2);
+extern void _wrap_delete_MPSolverParameters_ortools_50a07adbe5879be5(uintptr_t arg1);
 #undef intgo
 */
 import "C"
@@ -190,13 +186,13 @@ func swigCopyString(s string) string {
 
 func Swig_free(arg1 uintptr) {
 	_swig_i_0 := arg1
-	C._wrap_Swig_free_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_Swig_free_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 func Swig_malloc(arg1 int) (_swig_ret uintptr) {
 	var swig_r uintptr
 	_swig_i_0 := arg1
-	swig_r = (uintptr)(C._wrap_Swig_malloc_ortools_8bd0468efa37e4cc(C.swig_intgo(_swig_i_0)))
+	swig_r = (uintptr)(C._wrap_Swig_malloc_ortools_50a07adbe5879be5(C.swig_intgo(_swig_i_0)))
 	return swig_r
 }
 
@@ -212,28 +208,28 @@ func (p SwigcptrSolver) SwigIsSolver() {
 type Operations_researchMPSolverOptimizationProblemType int
 func _swig_getSolver_CLP_LINEAR_PROGRAMMING_Solver() (_swig_ret Operations_researchMPSolverOptimizationProblemType) {
 	var swig_r Operations_researchMPSolverOptimizationProblemType
-	swig_r = (Operations_researchMPSolverOptimizationProblemType)(C._wrap_CLP_LINEAR_PROGRAMMING_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverOptimizationProblemType)(C._wrap_CLP_LINEAR_PROGRAMMING_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverCLP_LINEAR_PROGRAMMING Operations_researchMPSolverOptimizationProblemType = _swig_getSolver_CLP_LINEAR_PROGRAMMING_Solver()
 func _swig_getSolver_GLOP_LINEAR_PROGRAMMING_Solver() (_swig_ret Operations_researchMPSolverOptimizationProblemType) {
 	var swig_r Operations_researchMPSolverOptimizationProblemType
-	swig_r = (Operations_researchMPSolverOptimizationProblemType)(C._wrap_GLOP_LINEAR_PROGRAMMING_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverOptimizationProblemType)(C._wrap_GLOP_LINEAR_PROGRAMMING_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverGLOP_LINEAR_PROGRAMMING Operations_researchMPSolverOptimizationProblemType = _swig_getSolver_GLOP_LINEAR_PROGRAMMING_Solver()
 func _swig_getSolver_CBC_MIXED_INTEGER_PROGRAMMING_Solver() (_swig_ret Operations_researchMPSolverOptimizationProblemType) {
 	var swig_r Operations_researchMPSolverOptimizationProblemType
-	swig_r = (Operations_researchMPSolverOptimizationProblemType)(C._wrap_CBC_MIXED_INTEGER_PROGRAMMING_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverOptimizationProblemType)(C._wrap_CBC_MIXED_INTEGER_PROGRAMMING_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverCBC_MIXED_INTEGER_PROGRAMMING Operations_researchMPSolverOptimizationProblemType = _swig_getSolver_CBC_MIXED_INTEGER_PROGRAMMING_Solver()
 func _swig_getSolver_BOP_INTEGER_PROGRAMMING_Solver() (_swig_ret Operations_researchMPSolverOptimizationProblemType) {
 	var swig_r Operations_researchMPSolverOptimizationProblemType
-	swig_r = (Operations_researchMPSolverOptimizationProblemType)(C._wrap_BOP_INTEGER_PROGRAMMING_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverOptimizationProblemType)(C._wrap_BOP_INTEGER_PROGRAMMING_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
@@ -242,7 +238,7 @@ func NewSolver(arg1 string, arg2 Operations_researchMPSolverOptimizationProblemT
 	var swig_r Solver
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r = (Solver)(SwigcptrSolver(C._wrap_new_Solver_ortools_8bd0468efa37e4cc(*(*C.swig_type_1)(unsafe.Pointer(&_swig_i_0)), C.swig_intgo(_swig_i_1))))
+	swig_r = (Solver)(SwigcptrSolver(C._wrap_new_Solver_ortools_50a07adbe5879be5(*(*C.swig_type_1)(unsafe.Pointer(&_swig_i_0)), C.swig_intgo(_swig_i_1))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg1
 	}
@@ -251,25 +247,25 @@ func NewSolver(arg1 string, arg2 Operations_researchMPSolverOptimizationProblemT
 
 func DeleteSolver(arg1 Solver) {
 	_swig_i_0 := arg1.Swigcptr()
-	C._wrap_delete_Solver_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_delete_Solver_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 func SolverSupportsProblemType(arg1 Operations_researchMPSolverOptimizationProblemType) (_swig_ret bool) {
 	var swig_r bool
 	_swig_i_0 := arg1
-	swig_r = (bool)(C._wrap_Solver_SupportsProblemType_ortools_8bd0468efa37e4cc(C.swig_intgo(_swig_i_0)))
+	swig_r = (bool)(C._wrap_Solver_SupportsProblemType_ortools_50a07adbe5879be5(C.swig_intgo(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrSolver) Clear() {
 	_swig_i_0 := arg1
-	C._wrap_Solver_Clear_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_Solver_Clear_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 func (arg1 SwigcptrSolver) NumVariables() (_swig_ret int) {
 	var swig_r int
 	_swig_i_0 := arg1
-	swig_r = (int)(C._wrap_Solver_NumVariables_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (int)(C._wrap_Solver_NumVariables_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
@@ -277,7 +273,7 @@ func (arg1 SwigcptrSolver) LookupVariable(arg2 string) (_swig_ret Variable) {
 	var swig_r Variable
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r = (Variable)(SwigcptrVariable(C._wrap_Solver_LookupVariable_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), *(*C.swig_type_2)(unsafe.Pointer(&_swig_i_1)))))
+	swig_r = (Variable)(SwigcptrVariable(C._wrap_Solver_LookupVariable_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), *(*C.swig_type_2)(unsafe.Pointer(&_swig_i_1)))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg2
 	}
@@ -290,7 +286,7 @@ func (arg1 SwigcptrSolver) NumVar(arg2 float64, arg3 float64, arg4 string) (_swi
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
 	_swig_i_3 := arg4
-	swig_r = (Variable)(SwigcptrVariable(C._wrap_Solver_NumVar_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2), *(*C.swig_type_3)(unsafe.Pointer(&_swig_i_3)))))
+	swig_r = (Variable)(SwigcptrVariable(C._wrap_Solver_NumVar_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2), *(*C.swig_type_3)(unsafe.Pointer(&_swig_i_3)))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg4
 	}
@@ -303,7 +299,7 @@ func (arg1 SwigcptrSolver) IntVar(arg2 float64, arg3 float64, arg4 string) (_swi
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
 	_swig_i_3 := arg4
-	swig_r = (Variable)(SwigcptrVariable(C._wrap_Solver_IntVar_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2), *(*C.swig_type_4)(unsafe.Pointer(&_swig_i_3)))))
+	swig_r = (Variable)(SwigcptrVariable(C._wrap_Solver_IntVar_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2), *(*C.swig_type_4)(unsafe.Pointer(&_swig_i_3)))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg4
 	}
@@ -314,7 +310,7 @@ func (arg1 SwigcptrSolver) BoolVar(arg2 string) (_swig_ret Variable) {
 	var swig_r Variable
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r = (Variable)(SwigcptrVariable(C._wrap_Solver_BoolVar_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), *(*C.swig_type_5)(unsafe.Pointer(&_swig_i_1)))))
+	swig_r = (Variable)(SwigcptrVariable(C._wrap_Solver_BoolVar_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), *(*C.swig_type_5)(unsafe.Pointer(&_swig_i_1)))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg2
 	}
@@ -324,7 +320,7 @@ func (arg1 SwigcptrSolver) BoolVar(arg2 string) (_swig_ret Variable) {
 func (arg1 SwigcptrSolver) NumConstraints() (_swig_ret int) {
 	var swig_r int
 	_swig_i_0 := arg1
-	swig_r = (int)(C._wrap_Solver_NumConstraints_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (int)(C._wrap_Solver_NumConstraints_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
@@ -332,7 +328,7 @@ func (arg1 SwigcptrSolver) LookupConstraint(arg2 string) (_swig_ret Constraint) 
 	var swig_r Constraint
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_LookupConstraint_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), *(*C.swig_type_6)(unsafe.Pointer(&_swig_i_1)))))
+	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_LookupConstraint_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), *(*C.swig_type_6)(unsafe.Pointer(&_swig_i_1)))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg2
 	}
@@ -344,14 +340,14 @@ func (arg1 SwigcptrSolver) Constraint__SWIG_0(arg2 float64, arg3 float64) (_swig
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
-	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_0_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2))))
+	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_0_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2))))
 	return swig_r
 }
 
 func (arg1 SwigcptrSolver) Constraint__SWIG_1() (_swig_ret Constraint) {
 	var swig_r Constraint
 	_swig_i_0 := arg1
-	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_1_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))))
+	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_1_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))))
 	return swig_r
 }
 
@@ -361,7 +357,7 @@ func (arg1 SwigcptrSolver) Constraint__SWIG_2(arg2 float64, arg3 float64, arg4 s
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
 	_swig_i_3 := arg4
-	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_2_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2), *(*C.swig_type_7)(unsafe.Pointer(&_swig_i_3)))))
+	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_2_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2), *(*C.swig_type_7)(unsafe.Pointer(&_swig_i_3)))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg4
 	}
@@ -372,29 +368,9 @@ func (arg1 SwigcptrSolver) Constraint__SWIG_3(arg2 string) (_swig_ret Constraint
 	var swig_r Constraint
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_3_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), *(*C.swig_type_8)(unsafe.Pointer(&_swig_i_1)))))
+	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_3_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), *(*C.swig_type_8)(unsafe.Pointer(&_swig_i_1)))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg2
-	}
-	return swig_r
-}
-
-func (arg1 SwigcptrSolver) Constraint__SWIG_4(arg2 LinearRange) (_swig_ret Constraint) {
-	var swig_r Constraint
-	_swig_i_0 := arg1
-	_swig_i_1 := arg2.Swigcptr()
-	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_4_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1))))
-	return swig_r
-}
-
-func (arg1 SwigcptrSolver) Constraint__SWIG_5(arg2 LinearRange, arg3 string) (_swig_ret Constraint) {
-	var swig_r Constraint
-	_swig_i_0 := arg1
-	_swig_i_1 := arg2.Swigcptr()
-	_swig_i_2 := arg3
-	swig_r = (Constraint)(SwigcptrConstraint(C._wrap_Solver_Constraint__SWIG_5_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1), *(*C.swig_type_9)(unsafe.Pointer(&_swig_i_2)))))
-	if Swig_escape_always_false {
-		Swig_escape_val = arg3
 	}
 	return swig_r
 }
@@ -405,25 +381,8 @@ func (p SwigcptrSolver) Constraint(a ...interface{}) Constraint {
 		return p.Constraint__SWIG_1()
 	}
 	if argc == 1 {
-		if _, ok := a[0].(string); !ok {
-			goto check_2
-		}
 		return p.Constraint__SWIG_3(a[0].(string))
 	}
-check_2:
-	if argc == 1 {
-		return p.Constraint__SWIG_4(a[0].(LinearRange))
-	}
-	if argc == 2 {
-		if _, ok := a[0].(SwigcptrLinearRange); !ok {
-			goto check_4
-		}
-		if _, ok := a[1].(string); !ok {
-			goto check_4
-		}
-		return p.Constraint__SWIG_5(a[0].(LinearRange), a[1].(string))
-	}
-check_4:
 	if argc == 2 {
 		return p.Constraint__SWIG_0(a[0].(float64), a[1].(float64))
 	}
@@ -436,49 +395,49 @@ check_4:
 func (arg1 SwigcptrSolver) Objective() (_swig_ret Objective) {
 	var swig_r Objective
 	_swig_i_0 := arg1
-	swig_r = (Objective)(SwigcptrObjective(C._wrap_Solver_Objective_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))))
+	swig_r = (Objective)(SwigcptrObjective(C._wrap_Solver_Objective_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))))
 	return swig_r
 }
 
 type Operations_researchMPSolverResultStatus int
 func _swig_getSolver_OPTIMAL_Solver() (_swig_ret Operations_researchMPSolverResultStatus) {
 	var swig_r Operations_researchMPSolverResultStatus
-	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_OPTIMAL_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_OPTIMAL_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverOPTIMAL Operations_researchMPSolverResultStatus = _swig_getSolver_OPTIMAL_Solver()
 func _swig_getSolver_FEASIBLE_Solver() (_swig_ret Operations_researchMPSolverResultStatus) {
 	var swig_r Operations_researchMPSolverResultStatus
-	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_FEASIBLE_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_FEASIBLE_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverFEASIBLE Operations_researchMPSolverResultStatus = _swig_getSolver_FEASIBLE_Solver()
 func _swig_getSolver_INFEASIBLE_Solver() (_swig_ret Operations_researchMPSolverResultStatus) {
 	var swig_r Operations_researchMPSolverResultStatus
-	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_INFEASIBLE_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_INFEASIBLE_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverINFEASIBLE Operations_researchMPSolverResultStatus = _swig_getSolver_INFEASIBLE_Solver()
 func _swig_getSolver_UNBOUNDED_Solver() (_swig_ret Operations_researchMPSolverResultStatus) {
 	var swig_r Operations_researchMPSolverResultStatus
-	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_UNBOUNDED_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_UNBOUNDED_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverUNBOUNDED Operations_researchMPSolverResultStatus = _swig_getSolver_UNBOUNDED_Solver()
 func _swig_getSolver_ABNORMAL_Solver() (_swig_ret Operations_researchMPSolverResultStatus) {
 	var swig_r Operations_researchMPSolverResultStatus
-	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_ABNORMAL_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_ABNORMAL_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverABNORMAL Operations_researchMPSolverResultStatus = _swig_getSolver_ABNORMAL_Solver()
 func _swig_getSolver_NOT_SOLVED_Solver() (_swig_ret Operations_researchMPSolverResultStatus) {
 	var swig_r Operations_researchMPSolverResultStatus
-	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_NOT_SOLVED_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_NOT_SOLVED_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
@@ -486,7 +445,7 @@ var SolverNOT_SOLVED Operations_researchMPSolverResultStatus = _swig_getSolver_N
 func (arg1 SwigcptrSolver) Solve__SWIG_0() (_swig_ret Operations_researchMPSolverResultStatus) {
 	var swig_r Operations_researchMPSolverResultStatus
 	_swig_i_0 := arg1
-	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_Solver_Solve__SWIG_0_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_Solver_Solve__SWIG_0_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
@@ -494,7 +453,7 @@ func (arg1 SwigcptrSolver) Solve__SWIG_1(arg2 MPSolverParameters) (_swig_ret Ope
 	var swig_r Operations_researchMPSolverResultStatus
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2.Swigcptr()
-	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_Solver_Solve__SWIG_1_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1)))
+	swig_r = (Operations_researchMPSolverResultStatus)(C._wrap_Solver_Solve__SWIG_1_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1)))
 	return swig_r
 }
 
@@ -512,7 +471,7 @@ func (p SwigcptrSolver) Solve(a ...interface{}) Operations_researchMPSolverResul
 func (arg1 SwigcptrSolver) ComputeConstraintActivities() (_swig_ret Std_vector_Sl_double_Sg_) {
 	var swig_r Std_vector_Sl_double_Sg_
 	_swig_i_0 := arg1
-	swig_r = (Std_vector_Sl_double_Sg_)(SwigcptrStd_vector_Sl_double_Sg_(C._wrap_Solver_ComputeConstraintActivities_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))))
+	swig_r = (Std_vector_Sl_double_Sg_)(SwigcptrStd_vector_Sl_double_Sg_(C._wrap_Solver_ComputeConstraintActivities_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))))
 	return swig_r
 }
 
@@ -521,14 +480,14 @@ func (arg1 SwigcptrSolver) VerifySolution(arg2 float64, arg3 bool) (_swig_ret bo
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
-	swig_r = (bool)(C._wrap_Solver_VerifySolution_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C._Bool(_swig_i_2)))
+	swig_r = (bool)(C._wrap_Solver_VerifySolution_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C._Bool(_swig_i_2)))
 	return swig_r
 }
 
 func (arg1 SwigcptrSolver) InterruptSolve() (_swig_ret bool) {
 	var swig_r bool
 	_swig_i_0 := arg1
-	swig_r = (bool)(C._wrap_Solver_InterruptSolve_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (bool)(C._wrap_Solver_InterruptSolve_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
@@ -536,7 +495,7 @@ func (arg1 SwigcptrSolver) SetSolverSpecificParametersAsString(arg2 string) (_sw
 	var swig_r bool
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r = (bool)(C._wrap_Solver_SetSolverSpecificParametersAsString_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), *(*C.swig_type_10)(unsafe.Pointer(&_swig_i_1))))
+	swig_r = (bool)(C._wrap_Solver_SetSolverSpecificParametersAsString_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), *(*C.swig_type_9)(unsafe.Pointer(&_swig_i_1))))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg2
 	}
@@ -546,86 +505,86 @@ func (arg1 SwigcptrSolver) SetSolverSpecificParametersAsString(arg2 string) (_sw
 type Operations_researchMPSolverBasisStatus int
 func _swig_getSolver_FREE_Solver() (_swig_ret Operations_researchMPSolverBasisStatus) {
 	var swig_r Operations_researchMPSolverBasisStatus
-	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_FREE_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_FREE_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverFREE Operations_researchMPSolverBasisStatus = _swig_getSolver_FREE_Solver()
 func _swig_getSolver_AT_LOWER_BOUND_Solver() (_swig_ret Operations_researchMPSolverBasisStatus) {
 	var swig_r Operations_researchMPSolverBasisStatus
-	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_AT_LOWER_BOUND_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_AT_LOWER_BOUND_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverAT_LOWER_BOUND Operations_researchMPSolverBasisStatus = _swig_getSolver_AT_LOWER_BOUND_Solver()
 func _swig_getSolver_AT_UPPER_BOUND_Solver() (_swig_ret Operations_researchMPSolverBasisStatus) {
 	var swig_r Operations_researchMPSolverBasisStatus
-	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_AT_UPPER_BOUND_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_AT_UPPER_BOUND_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverAT_UPPER_BOUND Operations_researchMPSolverBasisStatus = _swig_getSolver_AT_UPPER_BOUND_Solver()
 func _swig_getSolver_FIXED_VALUE_Solver() (_swig_ret Operations_researchMPSolverBasisStatus) {
 	var swig_r Operations_researchMPSolverBasisStatus
-	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_FIXED_VALUE_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_FIXED_VALUE_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverFIXED_VALUE Operations_researchMPSolverBasisStatus = _swig_getSolver_FIXED_VALUE_Solver()
 func _swig_getSolver_BASIC_Solver() (_swig_ret Operations_researchMPSolverBasisStatus) {
 	var swig_r Operations_researchMPSolverBasisStatus
-	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_BASIC_Solver_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_BASIC_Solver_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var SolverBASIC Operations_researchMPSolverBasisStatus = _swig_getSolver_BASIC_Solver()
 func SolverInfinity() (_swig_ret float64) {
 	var swig_r float64
-	swig_r = (float64)(C._wrap_Solver_infinity_ortools_8bd0468efa37e4cc())
+	swig_r = (float64)(C._wrap_Solver_infinity_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 func (arg1 SwigcptrSolver) EnableOutput() {
 	_swig_i_0 := arg1
-	C._wrap_Solver_EnableOutput_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_Solver_EnableOutput_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 func (arg1 SwigcptrSolver) SuppressOutput() {
 	_swig_i_0 := arg1
-	C._wrap_Solver_SuppressOutput_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_Solver_SuppressOutput_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 func (arg1 SwigcptrSolver) Set_time_limit(arg2 Int64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2.Swigcptr()
-	C._wrap_Solver_set_time_limit_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1))
+	C._wrap_Solver_set_time_limit_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1))
 }
 
 func (arg1 SwigcptrSolver) Wall_time() (_swig_ret Int64) {
 	var swig_r Int64
 	_swig_i_0 := arg1
-	swig_r = (Int64)(SwigcptrInt64(C._wrap_Solver_wall_time_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))))
+	swig_r = (Int64)(SwigcptrInt64(C._wrap_Solver_wall_time_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))))
 	return swig_r
 }
 
 func (arg1 SwigcptrSolver) Iterations() (_swig_ret Int64) {
 	var swig_r Int64
 	_swig_i_0 := arg1
-	swig_r = (Int64)(SwigcptrInt64(C._wrap_Solver_iterations_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))))
+	swig_r = (Int64)(SwigcptrInt64(C._wrap_Solver_iterations_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))))
 	return swig_r
 }
 
 func (arg1 SwigcptrSolver) Nodes() (_swig_ret Int64) {
 	var swig_r Int64
 	_swig_i_0 := arg1
-	swig_r = (Int64)(SwigcptrInt64(C._wrap_Solver_nodes_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))))
+	swig_r = (Int64)(SwigcptrInt64(C._wrap_Solver_nodes_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))))
 	return swig_r
 }
 
 func (arg1 SwigcptrSolver) ComputeExactConditionNumber() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Solver_ComputeExactConditionNumber_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Solver_ComputeExactConditionNumber_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
@@ -633,7 +592,7 @@ func (arg1 SwigcptrSolver) ExportModelAsLpFormat(arg2 bool) (_swig_ret string) {
 	var swig_r string
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r_p := C._wrap_Solver_ExportModelAsLpFormat_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C._Bool(_swig_i_1))
+	swig_r_p := C._wrap_Solver_ExportModelAsLpFormat_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C._Bool(_swig_i_1))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	var swig_r_1 string
  swig_r_1 = swigCopyString(swig_r) 
@@ -645,7 +604,7 @@ func (arg1 SwigcptrSolver) ExportModelAsMpsFormat(arg2 bool, arg3 bool) (_swig_r
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
-	swig_r_p := C._wrap_Solver_ExportModelAsMpsFormat_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C._Bool(_swig_i_1), C._Bool(_swig_i_2))
+	swig_r_p := C._wrap_Solver_ExportModelAsMpsFormat_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C._Bool(_swig_i_1), C._Bool(_swig_i_2))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	var swig_r_1 string
  swig_r_1 = swigCopyString(swig_r) 
@@ -656,29 +615,23 @@ func (arg1 SwigcptrSolver) LoadModelFromProto(arg2 Operations_research_MPModelPr
 	var swig_r string
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2.Swigcptr()
-	swig_r_p := C._wrap_Solver_LoadModelFromProto_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1))
+	swig_r_p := C._wrap_Solver_LoadModelFromProto_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	var swig_r_1 string
  swig_r_1 = swigCopyString(swig_r) 
 	return swig_r_1
 }
 
-func SolverPositiveInfinity() (_swig_ret float64) {
-	var swig_r float64
-	swig_r = (float64)(C._wrap_Solver_PositiveInfinity_ortools_8bd0468efa37e4cc())
-	return swig_r
-}
-
 func (arg1 SwigcptrSolver) SetTimeLimit(arg2 Int64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2.Swigcptr()
-	C._wrap_Solver_SetTimeLimit_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1))
+	C._wrap_Solver_SetTimeLimit_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1))
 }
 
 func (arg1 SwigcptrSolver) WallTime() (_swig_ret Int64) {
 	var swig_r Int64
 	_swig_i_0 := arg1
-	swig_r = (Int64)(SwigcptrInt64(C._wrap_Solver_WallTime_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))))
+	swig_r = (Int64)(SwigcptrInt64(C._wrap_Solver_WallTime_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))))
 	return swig_r
 }
 
@@ -725,90 +678,90 @@ func (p SwigcptrObjective) SwigIsObjective() {
 
 func (arg1 SwigcptrObjective) Clear() {
 	_swig_i_0 := arg1
-	C._wrap_Objective_Clear_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_Objective_Clear_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 func (arg1 SwigcptrObjective) SetCoefficient(arg2 Variable, arg3 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2.Swigcptr()
 	_swig_i_2 := arg3
-	C._wrap_Objective_SetCoefficient_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1), C.double(_swig_i_2))
+	C._wrap_Objective_SetCoefficient_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1), C.double(_swig_i_2))
 }
 
 func (arg1 SwigcptrObjective) GetCoefficient(arg2 Variable) (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2.Swigcptr()
-	swig_r = (float64)(C._wrap_Objective_GetCoefficient_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1)))
+	swig_r = (float64)(C._wrap_Objective_GetCoefficient_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1)))
 	return swig_r
 }
 
 func (arg1 SwigcptrObjective) SetOffset(arg2 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Objective_SetOffset_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
+	C._wrap_Objective_SetOffset_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
 }
 
 func (arg1 SwigcptrObjective) Offset() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Objective_offset_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Objective_offset_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrObjective) AddOffset(arg2 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Objective_AddOffset_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
+	C._wrap_Objective_AddOffset_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
 }
 
 func (arg1 SwigcptrObjective) SetOptimizationDirection(arg2 bool) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Objective_SetOptimizationDirection_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C._Bool(_swig_i_1))
+	C._wrap_Objective_SetOptimizationDirection_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C._Bool(_swig_i_1))
 }
 
 func (arg1 SwigcptrObjective) SetMinimization() {
 	_swig_i_0 := arg1
-	C._wrap_Objective_SetMinimization_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_Objective_SetMinimization_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 func (arg1 SwigcptrObjective) SetMaximization() {
 	_swig_i_0 := arg1
-	C._wrap_Objective_SetMaximization_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_Objective_SetMaximization_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 func (arg1 SwigcptrObjective) Maximization() (_swig_ret bool) {
 	var swig_r bool
 	_swig_i_0 := arg1
-	swig_r = (bool)(C._wrap_Objective_maximization_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (bool)(C._wrap_Objective_maximization_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrObjective) Minimization() (_swig_ret bool) {
 	var swig_r bool
 	_swig_i_0 := arg1
-	swig_r = (bool)(C._wrap_Objective_minimization_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (bool)(C._wrap_Objective_minimization_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrObjective) Value() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Objective_Value_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Objective_Value_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrObjective) BestBound() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Objective_BestBound_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Objective_BestBound_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func DeleteObjective(arg1 Objective) {
 	_swig_i_0 := arg1.Swigcptr()
-	C._wrap_delete_Objective_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_delete_Objective_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 type Objective interface {
@@ -841,7 +794,7 @@ func (p SwigcptrVariable) SwigIsVariable() {
 func (arg1 SwigcptrVariable) Name() (_swig_ret string) {
 	var swig_r string
 	_swig_i_0 := arg1
-	swig_r_p := C._wrap_Variable_name_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	swig_r_p := C._wrap_Variable_name_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	var swig_r_1 string
  swig_r_1 = swigCopyString(swig_r) 
@@ -851,56 +804,56 @@ func (arg1 SwigcptrVariable) Name() (_swig_ret string) {
 func (arg1 SwigcptrVariable) Integer() (_swig_ret bool) {
 	var swig_r bool
 	_swig_i_0 := arg1
-	swig_r = (bool)(C._wrap_Variable_integer_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (bool)(C._wrap_Variable_integer_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrVariable) Solution_value() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Variable_solution_value_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Variable_solution_value_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrVariable) Index() (_swig_ret int) {
 	var swig_r int
 	_swig_i_0 := arg1
-	swig_r = (int)(C._wrap_Variable_index_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (int)(C._wrap_Variable_index_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrVariable) Lb() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Variable_lb_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Variable_lb_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrVariable) Ub() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Variable_ub_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Variable_ub_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrVariable) Reduced_cost() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Variable_reduced_cost_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Variable_reduced_cost_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrVariable) Basis_status() (_swig_ret Operations_researchMPSolverBasisStatus) {
 	var swig_r Operations_researchMPSolverBasisStatus
 	_swig_i_0 := arg1
-	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_Variable_basis_status_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_Variable_basis_status_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrVariable) X__str__() (_swig_ret string) {
 	var swig_r string
 	_swig_i_0 := arg1
-	swig_r_p := C._wrap_Variable___str___ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	swig_r_p := C._wrap_Variable___str___ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	var swig_r_1 string
  swig_r_1 = swigCopyString(swig_r) 
@@ -910,7 +863,7 @@ func (arg1 SwigcptrVariable) X__str__() (_swig_ret string) {
 func (arg1 SwigcptrVariable) X__repr__() (_swig_ret string) {
 	var swig_r string
 	_swig_i_0 := arg1
-	swig_r_p := C._wrap_Variable___repr___ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	swig_r_p := C._wrap_Variable___repr___ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	var swig_r_1 string
  swig_r_1 = swigCopyString(swig_r) 
@@ -920,32 +873,32 @@ func (arg1 SwigcptrVariable) X__repr__() (_swig_ret string) {
 func (arg1 SwigcptrVariable) SolutionValue() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Variable_SolutionValue_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Variable_SolutionValue_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrVariable) SetLb(arg2 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Variable_SetLb_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
+	C._wrap_Variable_SetLb_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
 }
 
 func (arg1 SwigcptrVariable) SetUb(arg2 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Variable_SetUb_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
+	C._wrap_Variable_SetUb_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
 }
 
 func (arg1 SwigcptrVariable) ReducedCost() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Variable_ReducedCost_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Variable_ReducedCost_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func DeleteVariable(arg1 Variable) {
 	_swig_i_0 := arg1.Swigcptr()
-	C._wrap_delete_Variable_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_delete_Variable_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 type Variable interface {
@@ -979,7 +932,7 @@ func (p SwigcptrConstraint) SwigIsConstraint() {
 func (arg1 SwigcptrConstraint) Name() (_swig_ret string) {
 	var swig_r string
 	_swig_i_0 := arg1
-	swig_r_p := C._wrap_Constraint_name_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	swig_r_p := C._wrap_Constraint_name_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	var swig_r_1 string
  swig_r_1 = swigCopyString(swig_r) 
@@ -990,99 +943,99 @@ func (arg1 SwigcptrConstraint) SetCoefficient(arg2 Variable, arg3 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2.Swigcptr()
 	_swig_i_2 := arg3
-	C._wrap_Constraint_SetCoefficient_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1), C.double(_swig_i_2))
+	C._wrap_Constraint_SetCoefficient_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1), C.double(_swig_i_2))
 }
 
 func (arg1 SwigcptrConstraint) GetCoefficient(arg2 Variable) (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2.Swigcptr()
-	swig_r = (float64)(C._wrap_Constraint_GetCoefficient_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1)))
+	swig_r = (float64)(C._wrap_Constraint_GetCoefficient_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1)))
 	return swig_r
 }
 
 func (arg1 SwigcptrConstraint) Lb() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Constraint_lb_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Constraint_lb_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrConstraint) Ub() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Constraint_ub_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Constraint_ub_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrConstraint) SetLB(arg2 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Constraint_SetLB_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
+	C._wrap_Constraint_SetLB_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
 }
 
 func (arg1 SwigcptrConstraint) SetUB(arg2 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Constraint_SetUB_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
+	C._wrap_Constraint_SetUB_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
 }
 
 func (arg1 SwigcptrConstraint) SetBounds(arg2 float64, arg3 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
-	C._wrap_Constraint_SetBounds_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2))
+	C._wrap_Constraint_SetBounds_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1), C.double(_swig_i_2))
 }
 
 func (arg1 SwigcptrConstraint) Set_is_lazy(arg2 bool) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Constraint_set_is_lazy_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C._Bool(_swig_i_1))
+	C._wrap_Constraint_set_is_lazy_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C._Bool(_swig_i_1))
 }
 
 func (arg1 SwigcptrConstraint) Index() (_swig_ret int) {
 	var swig_r int
 	_swig_i_0 := arg1
-	swig_r = (int)(C._wrap_Constraint_index_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (int)(C._wrap_Constraint_index_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrConstraint) Dual_value() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Constraint_dual_value_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Constraint_dual_value_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrConstraint) Basis_status() (_swig_ret Operations_researchMPSolverBasisStatus) {
 	var swig_r Operations_researchMPSolverBasisStatus
 	_swig_i_0 := arg1
-	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_Constraint_basis_status_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (Operations_researchMPSolverBasisStatus)(C._wrap_Constraint_basis_status_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func (arg1 SwigcptrConstraint) SetLb(arg2 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Constraint_SetLb_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
+	C._wrap_Constraint_SetLb_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
 }
 
 func (arg1 SwigcptrConstraint) SetUb(arg2 float64) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	C._wrap_Constraint_SetUb_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
+	C._wrap_Constraint_SetUb_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.double(_swig_i_1))
 }
 
 func (arg1 SwigcptrConstraint) DualValue() (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
-	swig_r = (float64)(C._wrap_Constraint_DualValue_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0)))
+	swig_r = (float64)(C._wrap_Constraint_DualValue_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0)))
 	return swig_r
 }
 
 func DeleteConstraint(arg1 Constraint) {
 	_swig_i_0 := arg1.Swigcptr()
-	C._wrap_delete_Constraint_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_delete_Constraint_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 type Constraint interface {
@@ -1117,7 +1070,7 @@ func (p SwigcptrMPSolverParameters) SwigIsMPSolverParameters() {
 type Operations_researchMPSolverParametersDoubleParam int
 func _swig_getMPSolverParameters_RELATIVE_MIP_GAP_MPSolverParameters() (_swig_ret Operations_researchMPSolverParametersDoubleParam) {
 	var swig_r Operations_researchMPSolverParametersDoubleParam
-	swig_r = (Operations_researchMPSolverParametersDoubleParam)(C._wrap_RELATIVE_MIP_GAP_MPSolverParameters_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverParametersDoubleParam)(C._wrap_RELATIVE_MIP_GAP_MPSolverParameters_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
@@ -1125,20 +1078,20 @@ var MPSolverParametersRELATIVE_MIP_GAP Operations_researchMPSolverParametersDoub
 type Operations_researchMPSolverParametersIntegerParam int
 func _swig_getMPSolverParameters_PRESOLVE_MPSolverParameters() (_swig_ret Operations_researchMPSolverParametersIntegerParam) {
 	var swig_r Operations_researchMPSolverParametersIntegerParam
-	swig_r = (Operations_researchMPSolverParametersIntegerParam)(C._wrap_PRESOLVE_MPSolverParameters_ortools_8bd0468efa37e4cc())
+	swig_r = (Operations_researchMPSolverParametersIntegerParam)(C._wrap_PRESOLVE_MPSolverParameters_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 var MPSolverParametersPRESOLVE Operations_researchMPSolverParametersIntegerParam = _swig_getMPSolverParameters_PRESOLVE_MPSolverParameters()
 func GetMPSolverParametersKDefaultPrimalTolerance() (_swig_ret float64) {
 	var swig_r float64
-	swig_r = (float64)(C._wrap_MPSolverParameters_kDefaultPrimalTolerance_get_ortools_8bd0468efa37e4cc())
+	swig_r = (float64)(C._wrap_MPSolverParameters_kDefaultPrimalTolerance_get_ortools_50a07adbe5879be5())
 	return swig_r
 }
 
 func NewMPSolverParameters() (_swig_ret MPSolverParameters) {
 	var swig_r MPSolverParameters
-	swig_r = (MPSolverParameters)(SwigcptrMPSolverParameters(C._wrap_new_MPSolverParameters_ortools_8bd0468efa37e4cc()))
+	swig_r = (MPSolverParameters)(SwigcptrMPSolverParameters(C._wrap_new_MPSolverParameters_ortools_50a07adbe5879be5()))
 	return swig_r
 }
 
@@ -1146,21 +1099,21 @@ func (arg1 SwigcptrMPSolverParameters) SetDoubleParam(arg2 Operations_researchMP
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
-	C._wrap_MPSolverParameters_SetDoubleParam_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.swig_intgo(_swig_i_1), C.double(_swig_i_2))
+	C._wrap_MPSolverParameters_SetDoubleParam_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.swig_intgo(_swig_i_1), C.double(_swig_i_2))
 }
 
 func (arg1 SwigcptrMPSolverParameters) SetIntegerParam(arg2 Operations_researchMPSolverParametersIntegerParam, arg3 int) {
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
-	C._wrap_MPSolverParameters_SetIntegerParam_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.swig_intgo(_swig_i_1), C.swig_intgo(_swig_i_2))
+	C._wrap_MPSolverParameters_SetIntegerParam_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.swig_intgo(_swig_i_1), C.swig_intgo(_swig_i_2))
 }
 
 func (arg1 SwigcptrMPSolverParameters) GetDoubleParam(arg2 Operations_researchMPSolverParametersDoubleParam) (_swig_ret float64) {
 	var swig_r float64
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r = (float64)(C._wrap_MPSolverParameters_GetDoubleParam_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.swig_intgo(_swig_i_1)))
+	swig_r = (float64)(C._wrap_MPSolverParameters_GetDoubleParam_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.swig_intgo(_swig_i_1)))
 	return swig_r
 }
 
@@ -1168,13 +1121,13 @@ func (arg1 SwigcptrMPSolverParameters) GetIntegerParam(arg2 Operations_researchM
 	var swig_r int
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
-	swig_r = (int)(C._wrap_MPSolverParameters_GetIntegerParam_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0), C.swig_intgo(_swig_i_1)))
+	swig_r = (int)(C._wrap_MPSolverParameters_GetIntegerParam_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0), C.swig_intgo(_swig_i_1)))
 	return swig_r
 }
 
 func DeleteMPSolverParameters(arg1 MPSolverParameters) {
 	_swig_i_0 := arg1.Swigcptr()
-	C._wrap_delete_MPSolverParameters_ortools_8bd0468efa37e4cc(C.uintptr_t(_swig_i_0))
+	C._wrap_delete_MPSolverParameters_ortools_50a07adbe5879be5(C.uintptr_t(_swig_i_0))
 }
 
 type MPSolverParameters interface {
@@ -1200,14 +1153,6 @@ type Operations_research_MPModelProto interface {
 	Swigcptr() uintptr;
 }
 func (p SwigcptrOperations_research_MPModelProto) Swigcptr() uintptr {
-	return uintptr(p)
-}
-
-type SwigcptrLinearRange uintptr
-type LinearRange interface {
-	Swigcptr() uintptr;
-}
-func (p SwigcptrLinearRange) Swigcptr() uintptr {
 	return uintptr(p)
 }
 
