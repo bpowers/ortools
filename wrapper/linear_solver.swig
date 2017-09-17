@@ -28,7 +28,7 @@
 //
 // TODO(user): test all the APIs that are currently marked as 'untested'.
 
-%include "base/base.swig"
+%include "ortools/base/base.i"
 %include "go/std_string.i"
 
 // We need to forward-declare the proto here, so that the PROTO_* macros
